@@ -1,0 +1,682 @@
+﻿
+
+
+
+
+
+
+
+Γÿá  YAKSHA GAMA  Γÿá
+
+Blood in the Village
+
+Horror Edition ΓÇö Full Design Bible
+
+
+
+
+
+
+
+
+
+   &quot;He who wears the bear&apos;s skull walks among us. The drums have started. No one leaves the village alive.&quot;
+
+
+
+
+
+
+5ΓÇô10 Players  |  Horror Social Deduction  |  60ΓÇô120 min  |  Ages 16+
+
+
+
+
+
+
+
+
+
+
+
+
+1. The Horror Vision
+
+Yaksha Gama is not a lighthearted game with demon costumes. It is a game of dread, paranoia, and ritualistic terror rooted in genuine Sri Lankan nightmare mythology. Every mechanic is designed to make players feel the oppressive horror of a real Thovil exorcism gone wrong ΓÇö the torches guttering, the drumbeats wrong, the sweat of not knowing who among your circle has been possessed.
+
+
+
+
+1.1 Three Pillars of Horror
+
+
+
+
+  PILLAR 1: BODY HORROR ΓÇö The demons are grotesque. Mahasona has a backward bear skull for a head. Riri Yaka is a blood-drenched monkey-faced pygmy who stands on your chest as you die. These visuals must be present in every art asset.
+
+
+
+
+  PILLAR 2: SOCIAL PARANOIA ΓÇö You cannot trust anyone. Your closest ally could be Kalu Kumaraya, wearing a human face, whispering lies in your ear. The horror is not a monster in the dark ΓÇö it is your best friend smiling at you.
+
+
+
+
+  PILLAR 3: RITUAL DREAD ΓÇö The game is framed as a real Thovil ceremony that has gone wrong. The Vedamahattaya is an exorcist who has lost control. Players are not playing a game ΓÇö they are participants in a failed demon binding.
+
+
+
+
+
+
+
+
+2. Mythological Accuracy ΓÇö Demon Profiles
+
+Every role in Yaksha Gama uses the authentic mythological description from Sinhala oral tradition and documented folklore. These are not invented. They are real.
+
+
+
+
+2.1 MAHASONA ΓÇö The Demon (Main Villain)
+MAHASONA
+α╢╕α╖ä α╖âα╖¥α╢½α╖Å
+
+Based on:
+Ritigala Jayasena, Warrior of King Dutugemunu
+Horror Description: A 122-foot giant with a backward bear skull fused to a human body. Blood-red skin. Four hands. Rides a pig. Drinks elephant blood from a trunk held in his right hand. Leaves the handprint of death branded on his victim&apos;s shoulder.
+
+Night Ability: Each night, chooses one player to kill. The death is announced by the Vedamahattaya with: &apos;He was found at the crossroads. A handprint burned into his shoulder.&apos; When only 3 living players remain, Mahasona grows hungry ΓÇö he kills TWO players that night. Cannot be protected by the Pirith Monk more than once.
+
+Lore Weakness: Mahasona cannot cross running water or enter a home where pirith thread is tied at the door. If the Kattandiya correctly identifies him TWO nights in a row, the village learns his seat position (not his name).
+
+
+
+
+2.2 RIRI YAKA ΓÇö Blood Demon Minion
+RIRI YAKA
+α╢╗α╖ôα╢╗α╖ô α╢║α╢Üα╖Å
+
+Based on:
+The Blood Demon ΓÇö born human, became demon through blood lust
+Horror Description: Monkey-faced. Blood-red skin. Four arms: carries a sword, a rooster, a parrot, and a severed human head. Stands on the chest of the dying in his &apos;Maru Avatar&apos; form ΓÇö a pygmy one span tall. Haunts crematoriums at midnight.
+
+Night Ability: Each night, Riri Yaka &apos;bleeds&apos; one player. That player&apos;s information from the Kattandiya is corrupted the following night ΓÇö they receive a false alignment reading. Poisoned players appear pale and shaken (Vedamahattaya may describe them as &apos;looking ill&apos;). The poison lasts exactly one night.
+
+Lore Weakness: Riri Yaka is repelled by turmeric paste smeared on doorways. If the Pirith Monk uses their protection on a Riri Yaka-poisoned player, the poison is cured AND Riri Yaka cannot act the following night.
+
+
+
+
+2.3 KALU KUMARAYA ΓÇö Dark Prince Minion
+KALU KUMARAYA
+α╢Üα╖àα╖ö α╢Üα╖öα╢╕α╖Åα╢╗α╢║
+
+Based on:
+Ancient prince ΓÇö killed in battle, reborn as incubus demon
+Horror Description: Tall, dark, unnervingly handsome. Appears completely human. His horror is not physical ΓÇö it is that he looks like the most trustworthy person in the room. He finds you alone. He whispers. You believe him.
+
+Night Ability: Once per game, at night, Kalu Kumaraya silently swaps the seat tokens of two players on the Vedamahattaya&apos;s board. Any ability targeting &apos;the player to your left&apos; or &apos;your neighbour&apos; now receives wrong information. The swap is never announced. Players do not know it happened.
+
+Lore Weakness: Kalu Kumaraya cannot affect players holding the Pirith thread token. His power only works on players who have spoken privately with him in the previous day phase (tracked by Vedamahattaya).
+
+
+
+
+2.4 KATTANDIYA ΓÇö The Witch Doctor (Good Team)
+KATTANDIYA
+α╢Üα╢¡α╖èα╢¡α╢⌐α╖Æα╢║
+
+Based on:
+Hereditary exorcist ΓÇö performs Thovil ritual to cure demonic affliction
+Horror Description: Weathered. Smells of camphor and ash. Eyes that have seen too much. Carries a betel leaf pouch, a coconut oil lamp, and seven ritual threads. The only person who can read the demon signs ΓÇö but what if the demon has already turned him?
+
+Night Ability: Each night, the Kattandiya names one player to the Vedamahattaya. The Vedamahattaya shows a token: red skull (evil) or white lamp (good). If the Kattandiya has been poisoned by Riri Yaka, the token shown is always wrong for that night only.
+
+Lore Weakness: The Kattandiya&apos;s information is accurate unless poisoned. He cannot re-check the same player two nights in a row ΓÇö the ritual requires a cooling period.
+
+
+
+
+2.5 PIRITH MONK ΓÇö The Protector (Good Team)
+PIRITH MONK
+α╢┤α╖Æα╢╗α╖Æα╢¡α╖è α╖äα╖Åα╢╕α╖öα╢»α╖öα╢╗α╖öα╖Çα╖¥
+
+Based on:
+Buddhist monk who recites protective suttas against demonic possession
+Horror Description: Shaved head. Saffron robes now stained with the mud of a desperate night run through the village. Recites Atanatiya Sutta under breath even when speaking normally. His presence makes demons uncomfortable.
+
+Night Ability: Once per game only, during the night phase, the Pirith Monk chooses one player. That player cannot be killed by Mahasona that night. The Monk must choose BEFORE Mahasona acts. If the Monk protects himself, the protection fails ΓÇö selflessness is required by the ritual.
+
+Lore Weakness: After using his power, the Monk&apos;s role is exhausted. He becomes a regular villager. Riri Yaka cannot poison the Monk ΓÇö blood demons cannot touch one who has taken precepts.
+
+
+
+
+2.6 VEDDA HUNTER ΓÇö Forest Scout (Good Team)
+VEDDA HUNTER
+α╖Çα╖Éα╢»α╖Æ α╢»α╢⌐α╢║α╢Üα╖èα╢Üα╖Åα╢╗α╢║α╖Å
+
+Based on:
+Indigenous Vedda hunter ΓÇö knows the forest, tracks demons by their shadow
+Horror Description: Lean. Tribal markings on arms. Carries a bow strung with sinew from a black pig ΓÇö the only animal Mahasona rides. Quiet. Watches everyone&apos;s eyes. Demons cast wrong shadows at night.
+
+Night Ability: Passive ability only ΓÇö activates on death. If the Vedda Hunter is killed by Mahasona at night, he may immediately point at one player before the dawn announcement. If that player IS Mahasona, the good team wins instantly. He gets one shot. He has been tracking all game.
+
+Lore Weakness: If the Vedda Hunter is executed by the village (not killed by Mahasona), his death shot ability does NOT trigger. He must die by the demon&apos;s hand to fire. This cannot be gamed by asking him to be executed.
+
+
+
+
+2.7 GAMA RALAHAMY ΓÇö Village Elder (Good Team)
+GAMA RALAHAMY
+α╢£α╢╕ α╢╗α╖àα╖äα╖Åα╢╕α╖Æ
+
+Based on:
+Appointed village headman ΓÇö mediates between community and spirit world
+Horror Description: Old. Stooped. Has survived three Thovil ceremonies gone wrong. Knows the lore by heart but his memory slips at the worst moments. When he speaks in the Gam Maduwa, the village listens ΓÇö but evil players listen hardest.
+
+Night Ability: When the Ralahamy is executed by village vote, the Vedamahattaya immediately reveals: &apos;Mahasona is seated within 2 seats of [nominated player]&apos; ΓÇö giving a positional hint without naming the demon. This costs evil their cover but kills a good player. Use wisely.
+
+Lore Weakness: Mahasona&apos;s minions know who the Ralahamy is from Night One. He is always a target. If Mahasona kills the Ralahamy at night instead of by execution, the special reveal does NOT happen ΓÇö only execution triggers it.
+
+
+
+
+2.8 PRETAYA ΓÇö Cursed Ancestor Ghost (Outsider)
+PRETAYA
+α╢┤α╖èΓÇìα╢╗α╖Üα╢¡α╢║α╖Å
+
+Based on:
+Ancestor spirit trapped between worlds ΓÇö greedy soul denied rest
+Horror Description: Looks completely normal during the day. At night, the Vedamahattaya whispers to them: &apos;You are the Pretaya. You are cursed. Do not tell anyone what you are.&apos; The horror: they know they are handicapped and must lie to survive.
+
+Night Ability: The Pretaya is on the good team but their vote counts as half (rounds down). They are aware of this curse. They must not reveal they are a Pretaya ΓÇö if they do, the evil team may immediately nominate them for execution as a bonus action.
+
+Lore Weakness: The Pretaya&apos;s curse can be lifted: if the Pirith Monk uses their protection on the Pretaya specifically, the curse is broken permanently and they become a full voter. This is a gamble ΓÇö is saving a half-voter worth spending the only protection?
+
+
+
+
+
+
+
+
+
+3. Logic Framework ΓÇö Zero Plot Holes
+
+Every edge case is pre-resolved below. The Vedamahattaya must read this section before running any session. No situation should produce an undefined outcome.
+
+
+
+
+3.1 Night Order (Strict ΓÇö Never Deviated)
+
+The following order is absolute. Any ability that would create a paradox if reversed is deliberately sequenced to prevent it:
+
+
+Step
+Who
+What Happens
+1
+Vedamahattaya
+Announces night has fallen. All players close eyes.
+2
+Minions (Riri Yaka, Kalu Kumaraya)
+Wake together. Silently confirm each other. Learn who Mahasona is. (7+ players only)
+3
+Kalu Kumaraya
+If using swap ability: points to two players. Vedamahattaya updates board tokens silently.
+4
+Riri Yaka
+Points to one player to poison. Vedamahattaya marks that token with poison marker.
+5
+Kattandiya
+Points to one player to investigate. Vedamahattaya shows alignment token (may be false if poisoned).
+6
+Pirith Monk
+If using protection: points to one player. Vedamahattaya marks protection. Cannot be self.
+7
+Mahasona
+Points to one player to kill. Vedamahattaya marks death. If protected, kill is blocked silently.
+8
+Vedamahattaya
+All sleep. Computes outcomes. Resolves Vedda Hunter trigger if needed. Prepares dawn announcement.
+
+
+
+
+3.2 Edge Case Resolution Table
+
+Every known paradox or ambiguous situation is resolved here:
+
+
+Scenario
+Good Team Path
+Evil Team Path
+Edge Case Resolved
+Mahasona kills the Pirith Monk&apos;s protected target
+Target survives. Vedamahattaya announces no death. Village gains info.
+Mahasona must choose a new target tomorrow. Evil loses a kill. Good team gains a day.
+Protection is NOT announced ΓÇö village doesn&apos;t know Monk used it.
+Kalu Kumaraya swaps Kattandiya&apos;s neighbour ΓÇö Kattandiya checks left
+Kattandiya gets false neighbour ΓÇö swap happened before his check (Step 3 before Step 5).
+Evil team benefits from Kattandiya getting a wrong neighbour read.
+Swap is retroactive to all checks that night. Cannot be undone.
+Riri Yaka poisons Kattandiya on same night Kattandiya checks Mahasona
+Kattandiya&apos;s result tonight is false (poison resolves at Step 4, check at Step 5).
+Evil benefits: Kattandiya falsely reads Mahasona as good tonight.
+Poison applied THEN check happens. Strict night order prevents paradox.
+Vedda Hunter is executed (not killed by demon)
+Death shot does NOT trigger. Only demon-kills activate it. Execution = no bonus.
+Vedda Hunter dies with no effect. Village loses a strong good-team asset.
+This is intentional. Hunters must earn their death shot via demon kill.
+Mahasona targets himself (attempted)
+Illegal. Mahasona must target a living player other than himself. Vedamahattaya re-wakes him.
+N/A ΓÇö Vedamahattaya corrects without revealing to table.
+The Vedamahattaya is the neutral authority ΓÇö illegal moves are re-run.
+Pretaya is the last surviving good player vs Mahasona
+Evil wins. Two living players = evil win regardless of roles. Pretaya counts as a living player.
+Pretaya&apos;s half-vote cannot save the good team once only 2 living remain.
+Rule is explicit: 2 living = evil wins. No exceptions.
+Pirith Monk protects himself
+Protection fails silently. Vedamahattaya does not tell him. He learns nothing.
+Monk wasted protection. Evil may kill freely tonight.
+Selflessness rule is lore-accurate. Vedamahattaya enforces silently.
+Kattandiya checks same player two nights in row
+Second night info is still accurate (no restriction on repetition ΓÇö only on acting twice per night).
+Kattandiya gets accurate second reading. No rule broken.
+No cooldown exists in base rules. Future scripts may add this.
+All minions are dead; only Mahasona and 2 others remain
+Evil wins at 2 living players regardless of minion status.
+Minion deaths irrelevant to win condition. Only living player count matters.
+Win condition is living count only. Faction balance irrelevant at endgame.
+Pirith Monk&apos;s protection and Riri Yaka poison on same target
+Poison and protection cancel each other: target survives AND gets accurate info next day.
+Monk&apos;s protection cancels Riri Yaka&apos;s poison this one night only.
+Pirith always beats Riri Yaka per lore ΓÇö monk&apos;s protection supersedes blood magic.
+
+
+
+
+3.3 Win Condition Clarity
+
+The good team wins ONLY by executing Mahasona during the day phase. There is no other path to victory.
+
+
+
+The evil team wins the MOMENT only 2 living players remain ΓÇö even if Mahasona was nominated for execution that same day.
+
+
+
+Critical ordering: If a day ends with an execution that reduces living players to exactly 2, and the executed player was NOT Mahasona ΓÇö evil wins before any new vote can be called. The Vedamahattaya must count living players after every execution before proceeding.
+
+
+
+Tie vote scenario: If a nomination vote ends in a perfect tie, NO execution happens that day. This is not a bug ΓÇö it is a feature. Mahasona benefits from indecision. Evil teams should always try to split votes.
+
+
+
+
+
+
+
+
+
+4. Horror Atmosphere Design
+
+
+4.1 The Vedamahattaya&apos;s Script (Horror Narration)
+
+The Vedamahattaya must narrate each death with horror language drawn from real Sinhala folklore. Sample narration scripts for each death type:
+
+
+
+MAHASONA KILL: &quot;At the crossroads, before the first crow called, [player name] was found. The handprint. Four fingers. Burned into the shoulder like a brand. They did not scream ΓÇö there was no time. The bear was already gone.&quot;
+
+
+
+RIRI YAKA BLEED: &quot;In the night I felt something wrong near [player name]. They look pale this morning. Their eyes are too still. The blood demons have been here. Their information may be... tainted.&quot;
+
+
+
+VEDDA HUNTER DEATH SHOT: &quot;[Player] is dead ΓÇö killed by the demon&apos;s hand. But before they fell ΓÇö they pointed. Across the fire, through the smoke. They pointed at [X]. The hunter has named the beast. Is [X] Mahasona? Decide now.&quot;
+
+
+
+
+4.2 Physical Horror Components
+
+
+Death Tokens ΓÇö Black lacquered discs with a bear paw print in red ΓÇö Mahasona&apos;s mark. Not paper ΓÇö wood. Heavy.
+
+
+Poison Tokens ΓÇö Red cloth strips tied to a player&apos;s role pouch ΓÇö visible to all, ominous, unexplained.
+
+
+The Katawaliya ΓÇö The Vedamahattaya&apos;s box is modelled on a traditional Sri Lankan ahasa petiya (sky box) ΓÇö dark teak, carved with Kolam demon faces. Inside: the mirror that shows only evil.
+
+
+Night Sheet ΓÇö A vertical cloth scroll with the night order printed in Sinhala text and ancient demon illustrations ΓÇö unrolled each night, rolled back at dawn.
+
+
+Pirith Thread ΓÇö Actual white thread (as used in Sri Lankan rituals) tied to the protected player&apos;s wrist. Physically present.
+
+
+Role Tokens ΓÇö Carved wooden tokens, not cards. Each demon face matches the traditional Ambalangoda Kolam mask design for that specific demon.
+
+
+
+
+
+
+
+
+
+5. Full Technology Stack
+
+Below is every tool and technology needed to build Yaksha Gama from concept art to final production ΓÇö physical game, digital companion, and 3D assets.
+
+
+
+
+5.1 Concept Art & 2D Horror Illustration
+Tool / Tech
+What It Does
+Why This Game Needs It
+Cost
+Midjourney v6/v7
+AI horror concept art generation
+Best cinematic horror output. Use --style raw for gritty realism. Use --cref for character consistency across multiple images.
+$10ΓÇô30/mo
+Stable Diffusion + LoRA
+Custom model trained on Kolam mask styles
+Train a LoRA on 20+ real Kolam mask photos ΓåÆ consistent Sri Lankan demon aesthetic across all assets. Run locally (free after GPU setup).
+Free / Hardware
+Adobe Photoshop
+Final cleanup, blood FX, color grading
+Layer real oil paint textures over AI art. Add Thovil fire glow effects. Create card print-ready files at 300 DPI.
+$22/mo
+Procreate (iPad)
+Hand-drawn details on AI base
+Add traditional Sinhala knotwork borders, pirith thread patterns, temple kolam patterns on top of AI-generated demon bodies.
+$13 one-time
+Adobe Illustrator
+Vector token and board design
+All game component vector art ΓÇö the Gam Maduwa board, token outlines, night scroll typography in Sinhala.
+$22/mo
+
+
+
+
+5.2 3D Modelling & Character Sculpts
+Tool / Tech
+What It Does
+Why This Game Needs It
+Cost
+ZBrush
+High-poly demon sculpting
+Sculpt Mahasona&apos;s bear skull, Riri Yaka&apos;s monkey face, and Kalu Kumaraya&apos;s uncanny human face in film-quality detail. Used for box art and collectible figures.
+$40/mo
+Blender
+Retopology, rigging, rendering
+Free, professional-grade. Take ZBrush high-poly ΓåÆ retopo to game-ready mesh ΓåÆ rig for pose renders. Use Cycles renderer for horror lighting. Also build the 3D Katawaliya box model.
+Free
+Substance Painter
+PBR texturing of 3D models
+Paint blood, rot, and decay onto demon models with physically-based materials. Bloodstained skin, cracked bone, wet fur on Mahasona&apos;s bear head.
+$20/mo
+Meshy AI / Tripo
+AI-assisted 3D mesh from 2D concept
+Convert Midjourney concept art directly into a rough 3D mesh to speed up the sculpting base for ZBrush. Saves 40% of initial modelling time.
+Free tier / $20/mo
+KeyShot
+Product render for Kickstarter photos
+Photorealistic renders of the Katawaliya box, token sets, and game board for campaign marketing. Makes physical prototypes look production-ready.
+$50/mo
+
+
+
+
+5.3 Game Logic & Digital Companion App
+Tool / Tech
+What It Does
+Why This Game Needs It
+Cost
+React Native
+Cross-platform mobile app (iOS + Android)
+Build the Vedamahattaya companion app ΓÇö night phase timer, role distribution, narration scripts, Sinhala/English toggle. One codebase for both platforms.
+Free (open source)
+Expo
+React Native build toolchain
+Simplifies deployment. Handles OTA updates ΓÇö push new scripts and roles without app store re-submission.
+Free
+Howler.js / Tone.js
+Horror audio engine in browser app
+Real Thovil drum sounds, Sinhala chant samples, creaking cemetery ambience ΓÇö plays during night phase. Syncs with timer.
+Free
+Firebase / Supabase
+Backend for online play mode
+If building an online version: real-time game state sync, room codes, anonymous player management, Vedamahattaya remote mode.
+Free tier
+Figma
+UI/UX design for the app
+Design the Vedamahattaya app screens ΓÇö dark crimson, bone white, Sinhala typography. Export directly to React Native components.
+Free / $15/mo
+
+
+
+
+5.4 Physical Production
+Tool / Tech
+What It Does
+Why This Game Needs It
+Cost
+The Game Crafter
+Print-on-demand prototype production
+US-based board game manufacturer. Produce professional prototype before Kickstarter. Minimum order 1 copy. High-quality card stock, token printing.
+$50ΓÇô300/prototype
+Panda Game Mfg
+Mass production manufacturer (China)
+Used by Kickstarter-funded board games. 500+ unit runs. Handles wooden tokens, tuck boxes, custom inserts for the Katawaliya.
+Quote-based
+Adobe InDesign
+Print-ready rulebook layout
+Professional typography layout for the dual-language (Sinhala + English) rulebook with demon illustrations, blood-red chapter headers.
+$22/mo
+Kickstarter
+Crowdfunding platform
+Blood on the Clocktower raised $570K on a $65K goal (2018). Yaksha Gama targets a Sri Lankan diaspora + horror-game niche. Stretch goals = more scripts.
+5% platform fee
+
+
+
+
+
+
+
+
+
+6. Midjourney Horror Image Prompts
+
+Use these exact prompts in Midjourney v6.1 to generate authentic Sri Lankan horror concept art for each character. Add --ar 2:3 for card art, --ar 16:9 for box/banner art.
+
+
+
+
+6.1 Mahasona ΓÇö The Demon
+
+Card Art ΓÇö Full Body
+
+
+/imagine prompt: Mahasona demon, giant decapitated Sri Lankan warrior, bear skull head attached backwards, blood-red skin, four arms, holding a pike, riding a black pig through a moonless rice paddy, torches reflected in dark water, Sri Lankan temple ruins background, grotesque horror, Thovil ceremony aesthetic, ancient Ambalangoda mask style, dark crimson and bone palette, cinematic horror concept art, hyper-detailed, oil painting texture --ar 2:3 --style raw --stylize 250 --chaos 10
+
+Box Art ΓÇö Establishing Shot
+
+
+/imagine prompt: Mahasona the great graveyard demon of Sri Lanka, 100-foot giant with backwards bear head, silhouetted against burning Thovil torches, a circle of frightened villagers in traditional dress, night ceremony gone wrong, ancient Lanka aesthetic, horror illustration, blood moon, smoke and incense, dark atmospheric painting, inspired by traditional Sri Lankan devil mask art --ar 16:9 --style raw --stylize 300
+
+
+
+
+6.2 Riri Yaka ΓÇö Blood Demon
+
+Card Art ΓÇö Maru Avatar Form
+
+
+/imagine prompt: Riri Yaka Sri Lankan blood demon, tiny red-skinned monkey-faced figure standing on a dying man&apos;s chest, holds a rooster in one hand and a severed head in the other, cremation ground setting, burning pyres, red atmosphere, blood-smeared skin, horrifying pygmy demon, traditional Sri Lankan folklore horror, dark oil painting style, Kolam mask influence, grotesque --ar 2:3 --style raw --stylize 200
+
+
+
+
+6.3 Kalu Kumaraya ΓÇö Dark Prince
+
+Card Art ΓÇö The Seducer
+
+
+/imagine prompt: Kalu Kumaraya Sri Lankan demon prince, tall dark handsome man in ancient Lankan royal garb, standing near a moonlit well, face too perfect to be human, uncanny valley horror, shadow falls wrong direction, traditional Kandyan prince clothing, night scene in ancient village, sinister smile, horror portrait, stylized dark fantasy concept art --ar 2:3 --style raw --stylize 150
+
+
+
+
+6.4 Kattandiya ΓÇö Witch Doctor
+
+Card Art ΓÇö The Exorcist
+
+
+/imagine prompt: Kattandiya Sri Lankan exorcist witch doctor, old weathered man performing Thovil ceremony at midnight, surrounded by coconut oil lamps, ash on face, traditional betel leaf pouch, ritual threads on wrists, frightened expression, knows something is wrong tonight, ancient temple background, horror atmospheric portrait, dark warm palette, smoke and shadow --ar 2:3 --style raw --stylize 180
+
+
+
+
+6.5 Game Environment ΓÇö Thovil Ceremony Gone Wrong
+
+Background / Board Art
+
+
+/imagine prompt: Sri Lankan village at midnight, Thovil exorcism ceremony, circle of torches around a ritual space, traditional Kolam demon masks hanging from trees, rain starting to fall, one torch extinguished, shadow that doesn&apos;t belong to anyone visible on the ground, horror atmosphere, ancient Lanka setting, dark cinematic illustration, blood red and shadow black palette --ar 16:9 --style raw --stylize 280
+
+
+
+
+
+
+
+
+7. 3D Asset Pipeline ΓÇö Step by Step
+
+Use this pipeline to produce 3D assets for: game box packaging, Kickstarter campaign renders, collectible figurine add-ons, and a potential digital adaptation.
+
+
+
+
+Phase 1 ΓÇö Concept to Mesh
+
+
+Generate multiple Midjourney images of each demon from different angles using --cref to maintain consistency across views.
+
+
+Upload the best front-and-back view to Meshy AI or Tripo to auto-generate a rough 3D mesh. This takes 2ΓÇô5 minutes per character.
+
+
+Import rough mesh into ZBrush as a reference. Begin high-poly sculpt ΓÇö starting with the skull shape, then body proportions, then surface detail (fur, scales, wounds).
+
+
+For Mahasona specifically: sculpt the bear skull head SEPARATELY from the neck, then attach at an anatomically wrong backward angle ΓÇö this is his defining horror trait.
+
+
+
+
+Phase 2 ΓÇö Retopology and Rigging
+
+
+Export high-poly ZBrush mesh. Import into Blender. Use Blender&apos;s Shrinkwrap retopology to create a clean 10,000ΓÇô20,000 poly game mesh.
+
+
+Build an armature (skeleton) rig in Blender for each character. Even for a board game, rigged models allow you to quickly generate multiple pose renders for marketing.
+
+
+For the Katawaliya box: model in Blender using Sri Lankan pethi petiya reference images. Add carved kolam mask reliefs on all four faces of the box.
+
+
+
+
+Phase 3 ΓÇö Texturing
+
+
+Bake normal maps from the high-poly ZBrush mesh to the retopologised Blender mesh. This transfers the fine detail without the polygon cost.
+
+
+Import the game-ready mesh into Substance Painter. Paint all textures: Mahasona&apos;s blood-red skin with grey fur on the bear skull, Riri Yaka&apos;s monkey face with dried blood, Kalu Kumaraya&apos;s flawlessly smooth skin with a slight unnatural sheen.
+
+
+Export PBR texture maps (Albedo, Normal, Roughness, Metallic). Import into Blender Cycles for final horror renders.
+
+
+
+
+Phase 4 ΓÇö Horror Lighting & Render
+
+
+In Blender Cycles: set up a scene with two Thovil torches (warm flickering orange), a night sky HDRI, and one ominous backlight in deep red.
+
+
+Render at 4K minimum. Use Blender&apos;s denoising and Filmic colour profile for cinematic horror look.
+
+
+For Kickstarter: render each demon in a dramatic pose against the Thovil ceremony background environment. Composite in Photoshop ΓÇö add smoke, sparks, blood splatter.
+
+
+
+
+
+
+
+
+
+8. Production Timeline
+
+
+Phase
+Duration
+Deliverables
+Phase 1 ΓÇö Logic
+Month 1ΓÇô2
+Finalize all role abilities. Run 20+ playtests with proxy cards. Close all edge cases. Lock the night order.
+Phase 2 ΓÇö Art Direction
+Month 2ΓÇô3
+Generate 50+ Midjourney concepts per demon. Select canonical designs. Commission Sri Lankan artist for refinements.
+Phase 3 ΓÇö 2D Art
+Month 3ΓÇô5
+All character card art (300 DPI, 8 roles). Box art. Night scroll illustration. Board art. Rulebook illustrations.
+Phase 4 ΓÇö 3D Assets
+Month 4ΓÇô6
+ZBrush sculpts of all 8 characters. Retopo + rig in Blender. Substance Painter textures. Kickstarter render package.
+Phase 5 ΓÇö Physical Proto
+Month 6ΓÇô7
+Order prototype from The Game Crafter. Wooden token set from local woodworker. Test physical Katawaliya box.
+Phase 6 ΓÇö App Dev
+Month 7ΓÇô9
+Build Vedamahattaya companion app in React Native. Integrate Thovil drum audio. Sinhala/English UI.
+Phase 7 ΓÇö Kickstarter
+Month 10
+Launch campaign. Target: LKR 3M / $10K USD minimum. Showcase 3D renders, prototype photos, playtest video.
+Phase 8 ΓÇö Production
+Month 12ΓÇô18
+Partner with Panda Game Manufacturing. 500ΓÇô1000 unit first run. Deliver to backers.
+
+
+
+
+
+
+
+
+
+
+Yaksha Gama ΓÇö Full Horror Design Bible v2.0
+
+&quot;The demon is still among you. It always was.&quot;
+
+
+

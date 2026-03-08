@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+
+@font-face {
+  font-family: 'Heavytal';
+  src: url('./assets/fonts/Heavytal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TattosWishe';
+  src: url('./assets/fonts/TattosWishe.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-horror-bg: #0D0000;
+  --color-horror-primary: #8B0000;
+  --color-horror-accent: #B8860B;
+  --color-horror-text: #F5E6C8;
+  --color-horror-border: #3D0000;
+  --font-heading: 'Cinzel Decorative', serif;
+  --font-body: 'IM Fell English', serif;
+  --font-horror: 'Creepster', cursive;
+  --font-yaksha: 'Heavytal', sans-serif;
+  --font-village: 'TattosWishe', cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-horror-bg text-horror-text font-body m-0 p-0 antialiased min-h-screen;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('/assets/images/GameBackground.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-widest uppercase;
+  }
+}
+
+@layer utilities {
+  .glow-red {
+    text-shadow: 0 0 10px rgba(139, 0, 0, 0.8), 0 0 20px rgba(139, 0, 0, 0.5);
+  }
+
+  .glow-gold {
+    text-shadow: 0 0 10px rgba(184, 134, 11, 0.8), 0 0 20px rgba(184, 134, 11, 0.5);
+  }
+
+  .horror-border {
+    @apply border-2 border-horror-border bg-black/50 backdrop-blur-sm relative;
+  }
+
+  .blood-text-effect {
+    font-family: var(--font-horror);
+    color: #8B0000;
+    text-shadow:
+      0 3px 0 #3a0000,
+      0 6px 3px rgba(139, 0, 0, 0.4),
+      0 12px 10px rgba(139, 0, 0, 0.6);
+    letter-spacing: 0.1em;
+    position: relative;
+  }
+
+  .font-yaksha {
+    font-family: var(--font-yaksha);
+  }
+
+  .font-village {
+    font-family: var(--font-village);
+  }
+}
