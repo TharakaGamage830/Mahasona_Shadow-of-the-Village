@@ -88,19 +88,13 @@ export const KatawaliyaPanel: React.FC<KatawaliyaPanelProps> = ({ gameState, onW
                                 <p className="text-white text-xl uppercase font-heading mb-4">{gameState.players.find(p => p.id === gameState.nomineeId)?.name}</p>
 
                                 <div className="bg-black/60 border border-horror-border/50 p-3 mb-4 text-sm font-body">
-                                    <div className="text-gray-400 mb-1">Village Verdict (Pretaya votes = 0.5)</div>
-                                    <div className="flex justify-between items-center text-lg">
+                                    <div className="text-gray-400 mb-1 text-center font-heading tracking-widest uppercase text-[10px]">Village Verdict</div>
+                                    <div className="flex justify-between items-center text-lg px-4">
                                         <span className="text-red-500 glow-red">
-                                            BURN: {Object.entries(gameState.votes).filter(([_, v]) => v === 'up').reduce((acc, [idx, _]) => {
-                                                const voter = gameState.players.find(p => p.id === idx);
-                                                return acc + (voter?.role === 'Pretaya' ? 0.5 : 1);
-                                            }, 0)}
+                                            BURN: {Object.values(gameState.votes).filter(v => v === 'up').length}
                                         </span>
                                         <span className="text-green-500">
-                                            SPARE: {Object.entries(gameState.votes).filter(([_, v]) => v === 'down').reduce((acc, [idx, _]) => {
-                                                const voter = gameState.players.find(p => p.id === idx);
-                                                return acc + (voter?.role === 'Pretaya' ? 0.5 : 1);
-                                            }, 0)}
+                                            SPARE: {Object.values(gameState.votes).filter(v => v === 'down').length}
                                         </span>
                                     </div>
                                 </div>
