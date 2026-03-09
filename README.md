@@ -8,7 +8,7 @@ Set in the haunting village of Kandalama, players must identify the Mahasona pos
 
 ## 🔗 Live Demo
 > [!IMPORTANT]
-> **View the live ritual here:** [ADD_YOUR_LIVE_URL_HERE]
+> **View the live ritual here:** [https://mahasona-shadow-of-the-village.vercel.app/](https://mahasona-shadow-of-the-village.vercel.app/)
 
 ---
 
