@@ -73,6 +73,21 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
         }
     };
 
+    const handleCopyCode = () => {
+        if (gameState?.roomCode) {
+            navigator.clipboard.writeText(gameState.roomCode);
+        }
+    };
+
+    const handlePasteCode = async () => {
+        const text = await navigator.clipboard.readText();
+        if (text && text.length === 6) {
+            setRoomCodeInput(text.toUpperCase());
+        }
+    };
+
+    const takenIcons = gameState?.players?.map((p: any) => p.iconId) || [];
+
     return (
         <div className="flex flex-col items-center justify-center min-h-[80vh] w-full max-w-lg mx-auto p-4">
             {view === 'menu' && (
@@ -83,11 +98,23 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
                     </div>
                 }>
                     <p className="mb-4 font-body text-gray-400">
-                        Welcome, <span className="text-white font-bold">{playerName}</span>.
+                        Welcome, <span className="text-white font-bold">{playerName}</span>. Choose your totem:
                     </p>
-                    <p className="mb-8 font-body text-gray-500 text-sm leading-relaxed">
-                        The village of Kandalama faces its darkest hour. Identify the Mahasona hiding among you... or perish in the darkness.
-                    </p>
+
+                    <div className="w-full mb-8">
+                        <div className="flex gap-4 overflow-x-auto pb-4 px-2 custom-scrollbar mask-fade-edges">
+                            {PROFILE_ICONS.map(icon => (
+                                <button
+                                    key={icon.id}
+                                    type="button"
+                                    onClick={() => setIconId(icon.id)}
+                                    className={`min-w-[50px] h-[50px] flex items-center justify-center border-2 transition-all shrink-0 ${iconId === icon.id ? 'border-horror-primary scale-110 bg-horror-primary/10' : 'border-stone-800 opacity-40 hover:opacity-80'}`}
+                                >
+                                    <svg viewBox="0 0 24 24" className="w-8 h-8" dangerouslySetInnerHTML={{ __html: icon.svg }} />
+                                </button>
+                            ))}
+                        </div>
+                    </div>
 
                     <div className="space-y-6">
                         <HorrorButton fullWidth onClick={handleCreateRoom}>
@@ -113,14 +140,43 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
             {view === 'join' && (
                 <DarkPanel className="w-full text-center" title="Join Ritual">
                     <div className="space-y-6">
-                        <input
-                            type="text"
-                            placeholder="ROOM CODE (6 LETTERS)"
-                            value={roomCodeInput}
-                            onChange={(e) => setRoomCodeInput(e.target.value.toUpperCase())}
-                            maxLength={6}
-                            className="w-full bg-black/60 border border-horror-border px-4 py-3 text-center uppercase tracking-widest text-xl focus:outline-none focus:border-horror-primary glow-red text-horror-primary font-bold"
-                        />
+                        <div className="relative">
+                            <input
+                                type="text"
+                                placeholder="ROOM CODE"
+                                value={roomCodeInput}
+                                onChange={(e) => setRoomCodeInput(e.target.value.toUpperCase())}
+                                maxLength={6}
+                                className="w-full bg-black/60 border border-horror-border px-4 py-3 text-center uppercase tracking-widest text-xl focus:outline-none focus:border-horror-primary glow-red text-horror-primary font-bold pr-12"
+                            />
+                            <button
+                                onClick={handlePasteCode}
+                                className="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] bg-horror-border/40 hover:bg-horror-border p-1 px-2 uppercase tracking-tighter rounded"
+                                title="Paste Code"
+                            >
+                                Paste
+                            </button>
+                        </div>
+
+                        <div className="w-full">
+                            <label className="block text-[10px] uppercase tracking-[0.3em] text-horror-accent mb-3 text-center opacity-60">Pick Your Totem</label>
+                            <div className="flex gap-4 overflow-x-auto pb-4 px-2 custom-scrollbar mask-fade-edges">
+                                {PROFILE_ICONS.map(icon => {
+                                    const isTaken = takenIcons.includes(icon.id);
+                                    return (
+                                        <button
+                                            key={icon.id}
+                                            type="button"
+                                            disabled={isTaken}
+                                            onClick={() => setIconId(icon.id)}
+                                            className={`min-w-[50px] h-[50px] flex items-center justify-center border-2 transition-all shrink-0 ${iconId === icon.id ? 'border-horror-primary scale-110 bg-horror-primary/10' : isTaken ? 'border-red-900/40 opacity-10 cursor-not-allowed' : 'border-stone-800 opacity-40 hover:opacity-80'}`}
+                                        >
+                                            <svg viewBox="0 0 24 24" className="w-8 h-8" dangerouslySetInnerHTML={{ __html: icon.svg }} />
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
                         {errorVisible && <p className="text-red-500 text-sm font-bold">Failed to join. Invalid Code or Name taken.</p>}
                         <div className="flex gap-4">
                             <HorrorButton variant="ghost" onClick={() => setView('menu')} className="flex-1">
@@ -136,9 +192,18 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
 
             {view === 'waiting' && gameState && (
                 <DarkPanel className="w-full text-center flex flex-col animate-fade-in" glowColor="red">
-                    <h2 className="text-4xl font-heading text-horror-primary glow-red mb-2 tracking-[0.2em]">
-                        {gameState.roomCode}
-                    </h2>
+                    <div className="flex items-center justify-center gap-4 mb-2">
+                        <h2 className="text-4xl font-heading text-horror-primary glow-red tracking-[0.2em]">
+                            {gameState.roomCode}
+                        </h2>
+                        <button
+                            onClick={handleCopyCode}
+                            className="bg-horror-border/20 hover:bg-horror-border/40 p-2 border border-horror-border/40 rounded transition-colors group"
+                            title="Copy Code"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-60 group-hover:opacity-100"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        </button>
+                    </div>
                     <p className="text-sm font-body text-gray-400 mb-8 uppercase tracking-widest">
                         Room Code
                     </p>

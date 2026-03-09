@@ -29,6 +29,9 @@ export class GameRoom {
     addPlayer(socketId: string, name: string, userId: string, iconId: number) {
         if (this.state.players.some((p: Player) => p.userId === userId)) return false; // Already in room
 
+        // Ensure icon uniqueness
+        if (this.state.players.some((p: Player) => p.iconId === iconId)) return false;
+
         this.state.players.push({
             id: uuidv4(),
             userId,

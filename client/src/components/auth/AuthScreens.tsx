@@ -8,8 +8,8 @@ export const AuthScreens: React.FC = () => {
     const [view, setView] = useState<'login' | 'register'>('login');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [playerName, setPlayerName] = useState('');
-    const [selectedIconId, setSelectedIconId] = useState(0);
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
@@ -34,8 +34,7 @@ export const AuthScreens: React.FC = () => {
                     password,
                     options: {
                         data: {
-                            player_name: playerName.toUpperCase(),
-                            icon_id: selectedIconId
+                            player_name: playerName.toUpperCase()
                         }
                     }
                 });
@@ -61,7 +60,7 @@ export const AuthScreens: React.FC = () => {
             <DarkPanel className="w-full text-center" title={view === 'login' ? "Return to the Village" : "Join the Ritual"}>
                 <form onSubmit={handleAuth} className="space-y-6 flex flex-col items-center w-full">
                     {view === 'register' && (
-                        <div className="w-full space-y-4">
+                        <div className="w-full">
                             <input
                                 type="text"
                                 placeholder="YOUR PLAYER NAME"
@@ -70,22 +69,6 @@ export const AuthScreens: React.FC = () => {
                                 className="w-full bg-black/60 border border-horror-border px-4 py-3 text-center tracking-widest text-lg focus:outline-none focus:border-horror-primary mb-2 uppercase"
                                 required
                             />
-
-                            <div className="w-full">
-                                <label className="block text-xs uppercase tracking-[0.3em] text-horror-accent mb-3 text-center">Select Your Totem</label>
-                                <div className="flex gap-4 overflow-x-auto pb-4 px-2 custom-scrollbar mask-fade-edges">
-                                    {PROFILE_ICONS.map(icon => (
-                                        <button
-                                            key={icon.id}
-                                            type="button"
-                                            onClick={() => setSelectedIconId(icon.id)}
-                                            className={`min-w-[50px] h-[50px] flex items-center justify-center border-2 transition-all ${selectedIconId === icon.id ? 'border-horror-primary scale-110' : 'border-stone-800 opacity-40 hover:opacity-80'}`}
-                                        >
-                                            <svg viewBox="0 0 24 24" className="w-8 h-8" dangerouslySetInnerHTML={{ __html: icon.svg }} />
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
                         </div>
                     )}
                     <div className="w-full">
@@ -98,15 +81,26 @@ export const AuthScreens: React.FC = () => {
                             required
                         />
                     </div>
-                    <div className="w-full">
+                    <div className="w-full relative">
                         <input
-                            type="password"
-                            placeholder="PASSWORD"
+                            type={showPassword ? "text" : "password"}
+                            placeholder="DARK SEAL (PASSWORD)"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full bg-black/60 border border-horror-border px-4 py-3 text-center tracking-widest text-lg focus:outline-none focus:border-horror-primary mb-4"
+                            className="w-full bg-black/60 border border-horror-border px-4 py-3 text-center tracking-widest text-lg focus:outline-none focus:border-horror-primary mb-2"
                             required
                         />
+                        <button
+                            type="button"
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-horror-accent/40 hover:text-horror-accent transition-colors p-2"
+                        >
+                            {showPassword ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"></path><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"></path><path d="M6.61 6.61A13.52 13.52 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"></path><line x1="2" y1="2" x2="22" y2="22"></line></svg>
+                            ) : (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            )}
+                        </button>
                     </div>
 
                     {errorMsg && (

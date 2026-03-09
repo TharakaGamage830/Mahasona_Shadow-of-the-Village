@@ -15,12 +15,11 @@ export const KatawaliyaPanel: React.FC<KatawaliyaPanelProps> = ({ gameState, onW
     const [activePlayer, setActivePlayer] = useState<string | null>(null);
 
     const stepNames = [
-        "Step 1: Minions Wake",
-        "Step 2: Kalu Kumaraya Swap",
-        "Step 3: Riri Yaka Poison",
-        "Step 4: Kattandiya Investigate",
-        "Step 5: Pirith Monk Protect",
-        "Step 6: Mahasona Kill",
+        "Step 1: Yaka (Poison/Swap)",
+        "Step 2: Kattandiya (Investigate)",
+        "Step 3: Pirith Monk (Protect)",
+        "Step 4: Mahasona (Kill)",
+        "Step 5: Hunter (Revenge)",
         "Resolution & Dawn"
     ];
 
@@ -44,25 +43,40 @@ export const KatawaliyaPanel: React.FC<KatawaliyaPanelProps> = ({ gameState, onW
                         </h3>
 
                         <div className="space-y-4">
-                            <p className="text-gray-400 font-body">Current Night Step Logic: Follow the scroll. Wake the active roles, let them target, then put them to sleep.</p>
+                            <p className="text-gray-400 font-body text-sm italic">
+                                Action: {gameState.nightStep < 4 ? "Wake the relevant soul, then advance when they finish their ritual." : "The night draws to a close."}
+                            </p>
 
                             <div className="bg-black/50 border border-horror-border p-4">
-                                <h4 className="text-horror-accent font-heading mb-2">Trackers</h4>
-                                <div className="grid grid-cols-2 gap-2 text-sm">
-                                    <div>Poisoned: <span className="text-red-500">{gameState.poisonedPlayerId || 'None'}</span></div>
-                                    <div>Protected: <span className="text-blue-400">{gameState.protectedPlayerId || 'None'}</span></div>
-                                    <div className="col-span-2">Swaps: {gameState.swappedSeats ? 'Active' : 'None'}</div>
+                                <h4 className="text-horror-accent font-heading mb-2 text-xs">Ritual Progress</h4>
+                                <div className="grid grid-cols-2 gap-2 text-[10px] uppercase tracking-widest">
+                                    <div>Poisoned: <span className="text-red-500 font-bold">{gameState.players.find(p => p.id === gameState.poisonedPlayerId)?.name || 'None'}</span></div>
+                                    <div>Protected: <span className="text-blue-400 font-bold">{gameState.players.find(p => p.id === gameState.protectedPlayerId)?.name || 'None'}</span></div>
+                                    <div className="col-span-2">Swaps: <span className="text-yellow-600">{gameState.swappedSeats ? 'ACTIVE' : 'NONE'}</span></div>
                                 </div>
                             </div>
 
-                            <HorrorButton
-                                className="mt-6 w-full text-xs"
-                                onClick={() => {
-                                    socket.emit('start_day_phase', { roomId: gameState.roomId });
-                                }}
-                            >
-                                Wake the Village (Start Day)
-                            </HorrorButton>
+                            <div className="flex flex-col gap-2">
+                                <HorrorButton
+                                    variant="secondary"
+                                    className="w-full text-xs"
+                                    onClick={() => {
+                                        socket.emit('next_night_step', { roomId: gameState.roomId });
+                                    }}
+                                    disabled={gameState.nightStep >= 4}
+                                >
+                                    Next Night Step ({gameState.nightStep + 1}/5)
+                                </HorrorButton>
+
+                                <HorrorButton
+                                    className="w-full text-xs"
+                                    onClick={() => {
+                                        socket.emit('start_day_phase', { roomId: gameState.roomId });
+                                    }}
+                                >
+                                    🌅 End Night & Start Day
+                                </HorrorButton>
+                            </div>
                         </div>
                     </>
                 ) : (

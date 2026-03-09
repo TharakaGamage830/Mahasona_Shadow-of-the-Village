@@ -260,6 +260,58 @@ io.on('connection', (socket) => {
             }
         }
     });
+
+    // --- NIGHT PHASE ACTIONS ---
+
+    socket.on('storyteller_action', (data) => {
+        const room = Object.values(rooms).find(r => r.state.hostSessionId === socket.id);
+        if (!room) return;
+
+        if (data.type === 'WAKE') {
+            const player = room.state.players.find(p => p.id === data.targetId);
+            if (player) {
+                io.to(player.socketId).emit('wake_player');
+            }
+        } else if (data.type === 'SLEEP') {
+            const player = room.state.players.find(p => p.id === data.targetId);
+            if (player) {
+                io.to(player.socketId).emit('sleep_player');
+            } else if (!data.targetId) {
+                // Sleep ALL if no target specified
+                io.to(room.state.roomCode).emit('sleep_player');
+            }
+        } else if (data.type === 'FORCE_KILL') {
+            const target = room.state.players.find(p => p.id === data.targetId);
+            if (target) {
+                target.isAlive = false;
+                io.to(room.state.roomCode).emit('room_state_update', { gameState: room.state });
+            }
+        }
+    });
+
+    socket.on('next_night_step', (data) => {
+        const room = Object.values(rooms).find(r => r.state.roomId === data.roomId);
+        if (room && room.state.hostSessionId === socket.id) {
+            const manager = nightManagers[room.state.roomCode];
+            if (manager) {
+                manager.nextStep();
+                io.to(room.state.roomCode).emit('room_state_update', { gameState: room.state });
+                socket.emit('action_requested', manager.getStepInfo());
+            }
+        }
+    });
+
+    socket.on('night_action', (data) => {
+        const room = Object.values(rooms).find(r => r.state.roomId === data.roomId);
+        if (!room) return;
+
+        const manager = nightManagers[room.state.roomCode];
+        if (manager) {
+            const result = manager.handleAction(data.role, data.targetId, data.secondaryTargetId);
+            socket.emit('action_result', result);
+            io.to(room.state.roomCode).emit('room_state_update', { gameState: room.state });
+        }
+    });
 });
 
 server.listen(PORT, () => {
