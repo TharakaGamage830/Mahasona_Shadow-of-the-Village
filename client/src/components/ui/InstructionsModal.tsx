@@ -14,56 +14,71 @@ const roles = [
         color: 'text-green-400',
         border: 'border-green-900/50',
         icon: '🏡',
-        desc: 'A humble villager with no special power. Vote wisely during the Gam Maduwa to eliminate the demons hiding among you.',
+        desc: 'A humble villager. You have no powers but your vote and your voice. Find the demon before dawn!',
     },
     {
-        name: 'Vedamahattaya',
+        name: 'Kattandiya',
         side: 'Village',
         color: 'text-blue-300',
         border: 'border-blue-900/50',
-        icon: '🔮',
-        desc: 'The Seer. Each night you may peek at one player\'s true nature — good or evil.',
+        icon: '🕯️',
+        desc: 'The Investigator. Each night, see if a player is "RED SKULL" (Evil) or "WHITE LAMP" (Good).',
     },
     {
-        name: 'Katawaliya',
+        name: 'Pirith Monk',
         side: 'Village',
         color: 'text-yellow-300',
         border: 'border-yellow-900/50',
-        icon: '🛡️',
-        desc: 'The Protector. Each night you may shield one player from being killed by the demons.',
+        icon: '📿',
+        desc: 'The Healer. Each night, protect one player from the Mahasona. You cannot protect yourself.',
+    },
+    {
+        name: 'Vedda Hunter',
+        side: 'Village',
+        color: 'text-orange-400',
+        border: 'border-orange-900/50',
+        icon: '🏹',
+        desc: 'The Warrior. If killed by the Mahasona at night, you get a final revenge shot to take down anyone.',
+    },
+    {
+        name: 'Gama Ralahamy',
+        side: 'Village',
+        color: 'text-cyan-300',
+        border: 'border-cyan-900/50',
+        icon: '📜',
+        desc: 'The Village Head. You have the authority to speak first during the day discussion.',
     },
     {
         name: 'Mahasona',
-        side: 'Demon',
-        color: 'text-red-400',
-        border: 'border-red-900/60',
-        icon: '💀',
-        desc: 'A fearsome demon. Each night, pick a victim to devour. Works with the other evil players to outnumber the village.',
+        side: 'Evil',
+        color: 'text-red-500',
+        border: 'border-red-900/70',
+        icon: '🏮',
+        desc: 'The Great Demon. Each night, pick a victim to kill. Win if Evil equals or outnumbers Good.',
     },
     {
         name: 'Riri Yaka',
-        side: 'Demon',
+        side: 'Evil',
         color: 'text-red-400',
         border: 'border-red-900/60',
         icon: '🩸',
-        desc: 'A blood demon who knows the identities of all other demons. Deceive the village during the day.',
+        desc: 'The Poisoner. Each night, poison a player to make their power fail or reverse its result.',
     },
     {
         name: 'Kalu Kumaraya',
-        side: 'Demon',
+        side: 'Evil',
         color: 'text-purple-400',
         border: 'border-purple-900/60',
         icon: '🌑',
-        desc: 'The Shadow Prince. A demon who can confuse a player\'s role investigation, making evil look innocent.',
+        desc: 'The Seat Swapper. Each night, swap the physical seats of two players to confuse investigations.',
     },
 ];
 
 const steps = [
-    { icon: '🌙', title: 'Night Falls', desc: 'All players close their eyes. The Storyteller wakes demons, special roles and the seer one by one to perform their secret actions.' },
-    { icon: '☀️', title: 'Dawn Breaks', desc: 'Everyone opens their eyes. The Storyteller announces who, if anyone, was slain in the night.' },
-    { icon: '🗣️', title: 'Gam Maduwa', desc: 'The village debates openly in the chat. Accuse, argue, and try to expose the demons before they expose you.' },
-    { icon: '🗳️', title: 'The Vote', desc: 'Players nominate and vote on who to execute. The player with the most votes is eliminated and their role is revealed.' },
-    { icon: '🔁', title: 'Repeat', desc: 'Night and day continue until one side wins.' },
+    { icon: '🌙', title: 'Thovil Night', desc: 'The Yaka acts first, then the Kattandiya and Monk. Finally, the Mahasona strikes in secret.' },
+    { icon: '☀️', title: 'Daybreak', desc: 'The village wakes. The Storyteller reveals who was lost. The Hunter may take a final revenge.' },
+    { icon: '🗣️', title: 'Gam Maduwa', desc: 'The Gama Ralahamy leads the discussion. Accuse suspects and search for the truth.' },
+    { icon: '⚖️', title: 'The Burning', desc: 'A vote is held at the tribunal. If the Mahasona is identified and burned, the Village Wins.' },
 ];
 
 export const InstructionsModal: React.FC<InstructionsModalProps> = ({ isOpen, onClose }) => {
@@ -97,25 +112,24 @@ export const InstructionsModal: React.FC<InstructionsModalProps> = ({ isOpen, on
 
                         <div className="p-6 md:p-8">
                             {/* Header */}
-                            <h2 className="font-heading text-horror-accent glow-gold text-2xl md:text-3xl tracking-widest uppercase text-center mb-1">
+                            <h2 className="font-mahasona text-horror-accent glow-gold text-3xl md:text-4xl tracking-widest uppercase text-center mb-1">
                                 How to Play
                             </h2>
-                            <p className="text-center text-gray-500 font-body text-sm mb-6 tracking-wider">
-                                Yaksha Village — The Ancient Ritual
+                            <p className="font-shadows text-[10px] md:text-xs text-center text-gray-500 mb-6 tracking-[0.3em] uppercase opacity-70">
+                                MAHASONA — Shadows of the Village
                             </p>
 
                             {/* Objective */}
                             <div className="bg-horror-primary/10 border border-horror-primary/30 rounded-sm p-4 mb-6 text-center">
                                 <p className="font-body text-horror-text text-sm leading-relaxed">
-                                    <span className="text-green-400 font-bold">Villagers</span> must identify and eliminate all demons before the demons{' '}
-                                    <span className="text-red-400 font-bold">outnumber</span> the living good players.
-                                    Demons win if they equal or outnumber the remaining village.
+                                    <span className="text-green-400 font-bold uppercase tracking-tight">The Village</span> must identify and burn the Mahasona.
+                                    <span className="text-red-400 font-bold uppercase tracking-tight ml-2">The Evil</span> wins if they outnumber the living.
                                 </p>
                             </div>
 
                             {/* Game Flow */}
                             <h3 className="font-heading text-horror-accent uppercase tracking-widest text-sm mb-3 border-b border-horror-border pb-2">
-                                ⚔ The Ritual Cycle
+                                🏮 The Ritual Cycle
                             </h3>
                             <div className="space-y-3 mb-6">
                                 {steps.map((step, i) => (
@@ -123,7 +137,7 @@ export const InstructionsModal: React.FC<InstructionsModalProps> = ({ isOpen, on
                                         <span className="text-xl flex-shrink-0 mt-0.5">{step.icon}</span>
                                         <div>
                                             <span className="font-heading text-horror-accent text-xs uppercase tracking-wider">{step.title} — </span>
-                                            <span className="font-body text-gray-400 text-sm">{step.desc}</span>
+                                            <span className="font-body text-gray-400 text-sm italic">{step.desc}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -131,7 +145,7 @@ export const InstructionsModal: React.FC<InstructionsModalProps> = ({ isOpen, on
 
                             {/* Roles */}
                             <h3 className="font-heading text-horror-accent uppercase tracking-widest text-sm mb-3 border-b border-horror-border pb-2">
-                                🎭 Roles
+                                🎭 The Cast
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                                 {roles.map((role) => (
@@ -147,7 +161,7 @@ export const InstructionsModal: React.FC<InstructionsModalProps> = ({ isOpen, on
                                                     {role.side}
                                                 </span>
                                             </div>
-                                            <p className="font-body text-gray-400 text-xs leading-relaxed">{role.desc}</p>
+                                            <p className="font-body text-gray-400 text-[11px] leading-relaxed">{role.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -155,17 +169,17 @@ export const InstructionsModal: React.FC<InstructionsModalProps> = ({ isOpen, on
 
                             {/* Tips */}
                             <h3 className="font-heading text-horror-accent uppercase tracking-widest text-sm mb-3 border-b border-horror-border pb-2">
-                                💡 Tips
+                                📜 Ancient Wisdom
                             </h3>
                             <ul className="space-y-2 mb-8">
                                 {[
-                                    'Demons know each other — pay attention to who defends whom.',
-                                    'The Vedamahattaya should share clues carefully — revealing too early makes them a target.',
-                                    'Demons should blend in and create false accusations during the day.',
-                                    'The Katawaliya cannot protect themselves two nights in a row.',
-                                    'A tied vote results in no execution — demons love ties!',
+                                    'The Evil Team knows each other — watch for patterns in their voting.',
+                                    'The Vedamahattaya (Storyteller) holds the ritual together — trust their guidance.',
+                                    'Evil souls should weave false stories to survive the Gam Maduwa.',
+                                    'The Pirith Monk cannot protect the same soul two nights in a row.',
+                                    'A tied vote at the tribunal results in no execution. Time is your enemy!',
                                 ].map((tip, i) => (
-                                    <li key={i} className="flex gap-2 text-sm font-body text-gray-400">
+                                    <li key={i} className="flex gap-2 text-xs font-body text-gray-400">
                                         <span className="text-horror-accent flex-shrink-0">›</span>
                                         {tip}
                                     </li>

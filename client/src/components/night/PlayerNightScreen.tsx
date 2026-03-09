@@ -5,15 +5,14 @@ import { HorrorButton } from '../ui/HorrorButton';
 
 // Dummy description map. Would be expanded per role.
 const ROLE_DESCRIPTIONS: Record<string, string> = {
-    'Mahasona': 'You are the Demon. Each night, choose a player to kill.',
-    'Riri Yaka': 'You are a Minion. Each night, choose a player to poison. Their ability malfunctions.',
-    'Kalu Kumaraya': 'You are a Minion. Each night, secretly swap two players\' seats.',
-    'Kattandiya': 'You are a Townsfolk. Each night, choose a player. Learn if they are Evil (Red Skull) or Good (White Lamp).',
-    'Pirith Monk': 'You are a Townsfolk. Each night, choose a player to protect from the Demon. You cannot protect yourself.',
-    'Vedda Hunter': 'You are a Townsfolk. If the Demon kills you at night, you wake and shoot immediately.',
-    'Gama Ralahamy': 'You are a Townsfolk. If you are executed, the town learns one of your neighbours is Evil.',
-    'Pretaya': 'You are an Outsider. You appear dead to the town, but you are alive. Your vote counts as 0.5.',
-    'Townsfolk': 'You are a humble villager with no special ability.'
+    'Mahasona': 'You are the Demon. Each night, choose a player to kill. Your goal is to outnumber the good.',
+    'Riri Yaka': 'You are the Poisoner. Choose a player; their power will fail or reverse its vision.',
+    'Kalu Kumaraya': 'You are the Swapper. Select TWO players to swap their physical seat positions.',
+    'Kattandiya': 'You are the Investigator. Choose a player to see if they are a RED SKULL (Evil) or WHITE LAMP (Good).',
+    'Pirith Monk': 'You are the Healer. Choose a player to protect from the Mahasona. You cannot protect yourself.',
+    'Vedda Hunter': 'You are the Warrior. If the Mahasona kills you, fire your final revenge shot now.',
+    'Gama Ralahamy': 'You are the Village Head. You lead the day discussion. Use your voice well!',
+    'Townsfolk': 'You are a humble villager. Sleep peacefully... if you can.'
 };
 
 interface PlayerNightScreenProps {

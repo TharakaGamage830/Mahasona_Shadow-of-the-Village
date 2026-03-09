@@ -102,6 +102,15 @@ io.on('connection', (socket) => {
         }
     });
 
+    socket.on('leave_room', (data) => {
+        const room = rooms[data.roomCode];
+        if (room) {
+            room.removePlayer(data.userId);
+            socket.leave(data.roomCode);
+            io.to(data.roomCode).emit('room_state_update', { gameState: room.state });
+        }
+    });
+
     socket.on('start_game', (data) => {
         const room = rooms[data.roomCode];
         if (room && room.state.hostSessionId === socket.id && room.state.players.length >= 5) {

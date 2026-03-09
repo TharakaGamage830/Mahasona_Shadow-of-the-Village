@@ -2,7 +2,7 @@ import React from 'react';
 
 interface DarkPanelProps {
     children: React.ReactNode;
-    title?: string;
+    title?: React.ReactNode;
     className?: string;
     glowColor?: 'red' | 'gold' | 'none';
 }

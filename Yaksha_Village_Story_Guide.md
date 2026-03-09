@@ -21,22 +21,16 @@
 ## 🌑 Part I: The Descent (The Night Phase)
 "The sun dips below the horizon. The cicadas go silent. A heavy mist rolls in from the jungle. Close your eyes, villagers... sleep, if you can. For the spirits are waking."
 
-### 1. The Shadow Alliance
-"**Minions of the dark... open your eyes.** See your master, the Mahasona. Recognize your brothers in blood. Nod to each other, for you are the only ones who know the truth."
+### 1. The Yaka’s Mischief (Selected Yaka)
+"The Yaka steps from the shadows. If it is Kalu Kumaraya, he bends the paths between houses, swapping the souls within. If it is Riri Yaka, he breathes a sickly red mist, poisoning a mind and corrupting their magic."
 
-### 2. The Weaver of Paths (Kalu Kumaraya)
-"Kalu Kumaraya, the prince of shadows, steps from the well. He touches two houses, and the paths between them bend. The souls inside have moved, but they do not know it yet."
+### 2. The Seer’s Vision (Kattandiya)
+"The Kattandiya kneels before the spirit flame. He asks the ancestors: *'Is this soul pure or tainted?'* The flame flickers... showing him the red skull of evil or the white lamp of life."
 
-### 3. The Breath of Sickness (Riri Yaka)
-"Riri Yaka crawls through the thatch. He breathes a sickly red mist into one window. That soul's mind is now clouded; their magic will fail or deceive them tonight."
+### 3. The Holy Shield (Pirith Monk)
+"The Pirith Monk chants his ancient verses. He draws a circle of holy ash around one door. No demon can cross this line tonight. The soul inside is safe."
 
-### 4. The Seer’s Vision (Kattandiya)
-"The Kattandiya kneels before the spirit flame. He asks the ancestors: *'Is this soul pure or tainted?'* The flame flickers... showing him the red of blood or the white of bone."
-
-### 5. The Golden Shield (Pirith Monk)
-"The Pirith Monk chants his ancient verses. He draws a circle of holy ash around one door. No demon can cross this line tonight. The soul inside is safe... but the Monk himself remains exposed."
-
-### 6. The Final Hunt (Mahasona)
+### 4. The Final Hunt (Mahasona)
 "Finally... the Mahasona rises. He is ten feet of fur and bone, his eyes glowing like embers. He stalks the paths, choosing his prize. A single claw scratches a door. A life is claimed."
 
 ---

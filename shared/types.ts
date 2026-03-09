@@ -6,11 +6,10 @@ export type RoleType =
     | 'Pirith Monk'
     | 'Vedda Hunter'
     | 'Gama Ralahamy'
-    | 'Pretaya'
     | 'Townsfolk';
 
 export type Alignment = 'Good' | 'Evil';
-export type RoleCategory = 'Demon' | 'Minion' | 'Outsider' | 'Townsfolk';
+export type RoleCategory = 'Demon' | 'Minion' | 'Townsfolk';
 
 export interface Player {
     id: string; // uuid
@@ -25,8 +24,8 @@ export interface Player {
 
 export type GamePhase = 'lobby' | 'day' | 'night' | 'finished';
 
-export type NightStepIdx = 0 | 1 | 2 | 3 | 4 | 5 | 6;
-// 0: Minions, 1: Kalu Kumaraya, 2: Riri Yaka, 3: Kattandiya, 4: Pirith Monk, 5: Mahasona, 6: Resolution
+export type NightStepIdx = 0 | 1 | 2 | 3 | 4 | 5;
+// 0: Yaka, 1: Kattandiya, 2: Pirith Monk, 3: Mahasona, 4: Hunter Revenge (if needed), 5: Resolution
 
 export interface GameState {
     roomId: string;
@@ -38,10 +37,12 @@ export interface GameState {
     hostUserId: string;
 
     // Night phase state
+    selectedYaka: 'Riri Yaka' | 'Kalu Kumaraya' | null;
     nightStep: NightStepIdx;
     protectedPlayerId: string | null;
     poisonedPlayerId: string | null;
     swappedSeats: { [originalSeat: number]: number } | null;
+    hunterRevengeTargetId: string | null;
 
     // Voting / Day phase
     nomineeId: string | null;

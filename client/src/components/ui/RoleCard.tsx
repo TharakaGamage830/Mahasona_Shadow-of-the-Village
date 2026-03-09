@@ -66,7 +66,6 @@ export const RoleCard: React.FC<RoleCardProps> = ({
                                 onError={(e) => {
                                     const target = e.target as HTMLImageElement;
                                     if (role === 'Townsfolk') target.src = '/assets/images/Villager-CardArt.png';
-                                    if (role === 'Pretaya') target.src = '/assets/images/Prethaya-CardArt.png';
                                 }}
                             />
                         </div>

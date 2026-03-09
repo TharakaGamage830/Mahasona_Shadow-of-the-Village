@@ -47,8 +47,13 @@ export const TownSquare: React.FC<TownSquareProps> = ({ gameState, myPlayer }) =
 
     return (
         <div className="flex flex-col h-full border border-horror-border bg-black/60 relative">
-            <div className="p-2 border-b border-horror-border bg-horror-border/30">
-                <h3 className="font-heading text-horror-accent text-center tracking-widest text-sm">Town Square Whispers</h3>
+            <div className="p-2 border-b border-horror-border bg-horror-border/30 flex justify-between items-center">
+                <h3 className="font-heading text-horror-accent tracking-widest text-xs">Town Square Whispers</h3>
+                {gameState.players.find(p => p.role === 'Gama Ralahamy' && p.isAlive) && (
+                    <span className="text-[10px] bg-horror-primary/20 text-horror-primary px-2 py-0.5 border border-horror-primary/30 rounded-full animate-pulse">
+                        Village Head Present
+                    </span>
+                )}
             </div>
 
             <div ref={chatRef} className="flex-1 overflow-y-auto p-4 space-y-3 font-body text-gray-300">

@@ -10,24 +10,42 @@
 }
 
 @font-face {
-  font-family: 'TattosWishe';
-  src: url('./assets/fonts/TattosWishe.ttf') format('truetype');
+  font-family: 'CrowenZero';
+  src: url('./assets/fonts/CrowenZero.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RoydenRegular';
+  src: url('./assets/fonts/RoydenDemoRegular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --color-horror-bg: #0D0000;
-  --color-horror-primary: #8B0000;
-  --color-horror-accent: #B8860B;
-  --color-horror-text: #F5E6C8;
-  --color-horror-border: #3D0000;
-  --font-heading: 'Cinzel Decorative', serif;
-  --font-body: 'IM Fell English', serif;
-  --font-horror: 'Creepster', cursive;
-  --font-yaksha: 'Heavytal', sans-serif;
-  --font-village: 'TattosWishe', cursive;
+  --color-horror-primary: #8b0000;
+  --color-horror-bg: #0a0a0a;
+  --color-horror-text: #e0e0e0;
+  --color-horror-accent: #dca54e;
+  --color-horror-border: #3d0000;
+
+  --font-mahasona: "CrowenZero", serif;
+  --font-shadows: "RoydenRegular", serif;
+  --font-heading: "Creepster", cursive;
+  --font-body: "Inter", sans-serif;
+}
+
+:root {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M2 2L6 16L10 12L19 21L22 18L13 9L17 5L2 2Z' fill='%23dca54e' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E"), auto;
+}
+
+button,
+a,
+.cursor-pointer {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M2 2L6 16L10 12L19 21L22 18L13 9L17 5L2 2Z' fill='%23ffcc33' stroke='%23000' stroke-width='1.5'/%3E%3C/svg%3E") 2 2, pointer !important;
 }
 
 @layer base {
@@ -58,6 +76,14 @@
     text-shadow: 0 0 10px rgba(184, 134, 11, 0.8), 0 0 20px rgba(184, 134, 11, 0.5);
   }
 
+  .mahasona-glow {
+    color: #ff1a1a;
+    text-shadow:
+      0 0 10px rgba(255, 0, 0, 0.8),
+      0 0 25px rgba(139, 0, 0, 0.6),
+      0 0 40px rgba(184, 134, 11, 0.3);
+  }
+
   .horror-border {
     @apply border-2 border-horror-border bg-black/50 backdrop-blur-sm relative;
   }
@@ -73,11 +99,32 @@
     position: relative;
   }
 
-  .font-yaksha {
-    font-family: var(--font-yaksha);
+  .font-mahasona {
+    font-family: var(--font-mahasona);
   }
 
-  .font-village {
-    font-family: var(--font-village);
+  .font-shadows {
+    font-family: var(--font-shadows);
+  }
+
+  /* Global Asset Protection */
+  * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  img {
+    pointer-events: none !important;
+    user-select: none !important;
+    -webkit-user-drag: none !important;
+  }
+
+  /* Allow text selection in inputs and forms */
+  input,
+  textarea {
+    user-select: text !important;
+    -webkit-user-select: text !important;
   }
 }

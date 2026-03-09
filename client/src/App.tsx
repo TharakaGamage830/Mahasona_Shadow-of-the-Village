@@ -18,8 +18,7 @@ function GameRouter() {
   const { gameState, myPlayer, isStoryteller, isAwake, investigationResult, winner } = useGameState();
   const [roleAcknowledged, setRoleAcknowledged] = useState(false);
 
-  // Initialize Global Audio
-  useGameAudio();
+  // Initialize Global Audio moves to App()
 
   const pageVariants = {
     initial: { opacity: 0, scale: 0.95 },
@@ -102,16 +101,28 @@ function GameRouter() {
     if (!roleAcknowledged && myPlayer.role) {
       // Show Role Reveal Screen first
       const alignment = ['Mahasona', 'Riri Yaka', 'Kalu Kumaraya'].includes(myPlayer.role) ? 'Evil' : 'Good';
+
+      const roleDescriptions: Record<string, string> = {
+        'Mahasona': "The possessed villager. Your goal is to kill until Evil outnumbers Good. You are the source of the curse.",
+        'Riri Yaka': "The Poisoner. Each night, choose a player to poison. Their powers will fail or reverse.",
+        'Kalu Kumaraya': "The Seat Swapper. Each night, swap the physical seats of two players. Confuse their investigations.",
+        'Kattandiya': "The Investigator. Each night, see if a player is 'RED SKULL' (Evil) or 'WHITE LAMP' (Good). Be careful if poisoned!",
+        'Pirith Monk': "The Healer. Each night, choose a player to protect from the Mahasona. You cannot protect yourself.",
+        'Vedda Hunter': "The Warrior. If the Mahasona kills you at night, you get one final revenge shot to take down a player.",
+        'Gama Ralahamy': "The Village Head. You have the authority to speak first during the day's discussion.",
+        'Townsfolk': "A simple villager. You have no powers but your vote and your voice. Find the demon!"
+      };
+
       return wrapPage(
         <div className="flex flex-col items-center justify-center py-10 w-full">
           <RoleCard
             role={myPlayer.role}
             alignment={alignment as 'Good' | 'Evil'}
-            description="Your secret role. Do not show this to anyone."
+            description={roleDescriptions[myPlayer.role] || "A mysterious figure in the village."}
             isFlipped={false}
           />
           <HorrorButton className="mt-8" onClick={() => setRoleAcknowledged(true)}>
-            I understand my role
+            Accept My Fate
           </HorrorButton>
         </div>, 'roleReveal'
       );
@@ -159,7 +170,14 @@ function App() {
   const [session, setSession] = useState<Session | null>(null);
   const [loadingSession, setLoadingSession] = useState(true);
 
+  // Initialize Global Audio for the entire site (Login + Game)
+  const { isMuted, toggleMute } = useGameAudio();
+
   useEffect(() => {
+    // Prevent global right-click to protect assets
+    const preventContext = (e: MouseEvent) => e.preventDefault();
+    window.addEventListener('contextmenu', preventContext);
+
     if (supabase) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         setSession(session);
@@ -172,9 +190,13 @@ function App() {
         setSession(session);
       });
 
-      return () => subscription.unsubscribe();
+      return () => {
+        subscription.unsubscribe();
+        window.removeEventListener('contextmenu', preventContext);
+      };
     } else {
       setLoadingSession(false);
+      return () => window.removeEventListener('contextmenu', preventContext);
     }
   }, []);
 
@@ -184,23 +206,42 @@ function App() {
     }
   };
 
-  return (
-    <div className="flex flex-col items-center min-h-screen p-4 overflow-x-hidden w-full">
+  const branding = (
+    <>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 2, ease: "easeOut" }}
+        className="w-full max-w-2xl mb-4 mt-2"
+      >
+        <img
+          src="/assets/images/Mahasona-BoxArt.png"
+          alt="Mahasona Ritual"
+          className="w-full h-auto object-contain drop-shadow-[0_0_20px_rgba(139,0,0,0.4)]"
+        />
+      </motion.div>
+
       <motion.h1
-        initial={{ y: -50, opacity: 0 }}
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-6xl mb-2 mt-4 md:mt-8 flex flex-col md:flex-row gap-2 md:gap-4 text-center items-center justify-center w-full"
+        className="text-4xl md:text-5xl mb-6 mt-4 md:mt-8 flex flex-col gap-6 text-center items-center justify-center w-full"
       >
-        <span className="font-yaksha normal-case tracking-[0.2em] md:tracking-[0.3em] glow-red text-horror-primary">Yaksha</span>
-        <span className="font-village blood-text-effect text-5xl md:text-7xl md:tracking-widest pt-0 md:pt-2">VILLAGE</span>
+        <span className="font-mahasona text-4xl md:text-5xl mahasona-glow tracking-wide drop-shadow-[0_4px_15px_rgba(255,0,0,0.6)]">MAHASONA</span>
+        <span className="font-shadows text-2xl md:text-4xl tracking-[0.5em] text-horror-accent pt-2 mt-2 border-t border-horror-accent/30 uppercase">Shadows of the Village</span>
       </motion.h1>
+    </>
+  );
+
+  return (
+    <div className="flex flex-col items-center min-h-screen p-4 overflow-x-hidden w-full">
+      {!session && branding}
 
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8, ease: 'easeOut' }}
-        className="mb-4 md:mb-6 flex gap-4"
+        className="mb-4 md:mb-6 flex gap-4 mt-4"
       >
         <HorrorButton
           variant="ghost"
@@ -208,6 +249,14 @@ function App() {
           className="text-xs tracking-[0.25em] text-horror-accent/70 hover:text-horror-accent border-horror-accent/20 hover:border-horror-accent/50"
         >
           📜 How to Play
+        </HorrorButton>
+
+        <HorrorButton
+          variant="ghost"
+          onClick={toggleMute}
+          className="text-xs tracking-[0.25em] text-horror-accent/70 hover:text-horror-accent border-horror-accent/20 hover:border-horror-accent/50"
+        >
+          {isMuted ? '🔇 Unmute' : '🔊 Mute'}
         </HorrorButton>
 
         {session && (
@@ -226,9 +275,14 @@ function App() {
       {loadingSession ? (
         <div className="text-white mt-10 tracking-widest uppercase animate-pulse">Contacting Spirits...</div>
       ) : session ? (
-        <AnimatePresence mode="wait">
-          <GameRouter />
-        </AnimatePresence>
+        <>
+          <AnimatePresence mode="wait">
+            <GameRouter />
+          </AnimatePresence>
+          <div className="mt-20 w-full flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity duration-700">
+            {branding}
+          </div>
+        </>
       ) : (
         <AnimatePresence mode="wait">
           <motion.div
@@ -242,6 +296,18 @@ function App() {
           </motion.div>
         </AnimatePresence>
       )}
+
+      <footer className="mt-auto pt-10 pb-4 w-full flex flex-col items-center opacity-30 hover:opacity-100 transition-opacity duration-700">
+        <img
+          src="/assets/HeaderIcon.png"
+          alt="Creator Logo"
+          className="w-12 h-12 object-contain mb-3 drop-shadow-[0_0_10px_rgba(139,0,0,0.5)]"
+        />
+        <div className="h-px w-24 bg-gradient-to-r from-transparent via-horror-accent/40 to-transparent mb-2"></div>
+        <p className="font-body text-[10px] tracking-[0.4em] uppercase text-horror-accent">
+          Created By tharaka gamage
+        </p>
+      </footer>
     </div>
   )
 }

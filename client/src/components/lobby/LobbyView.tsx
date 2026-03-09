@@ -62,15 +62,28 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
         }
     };
 
+    const handleLeaveRoom = () => {
+        if (gameState && gameState.roomCode) {
+            socket.emit('leave_room', { roomCode: gameState.roomCode, userId });
+            localStorage.removeItem('yaksha_room');
+            setView('menu');
+        }
+    };
+
     return (
         <div className="flex flex-col items-center justify-center min-h-[80vh] w-full max-w-lg mx-auto p-4">
             {view === 'menu' && (
-                <DarkPanel className="w-full text-center" title="The Village Awaits">
+                <DarkPanel className="w-full text-center" title={
+                    <div className="flex flex-col items-center py-2">
+                        <span className="font-mahasona text-3xl md:text-4xl mahasona-glow tracking-wide drop-shadow-[0_2px_10px_rgba(255,0,0,0.5)]">MAHASONA</span>
+                        <span className="font-shadows text-xs md:text-sm text-horror-accent mt-1 tracking-[0.4em] uppercase opacity-90 border-t border-horror-accent/20 pt-1 w-full max-w-[200px]">Shadows of the Village</span>
+                    </div>
+                }>
                     <p className="mb-4 font-body text-gray-400">
                         Welcome, <span className="text-white font-bold">{playerName}</span>.
                     </p>
-                    <p className="mb-8 font-body text-gray-500 text-sm">
-                        Create a new session as the Vedamahattaya or join an existing ritual.
+                    <p className="mb-8 font-body text-gray-500 text-sm leading-relaxed">
+                        The village of Kandalama faces its darkest hour. Identify the Mahasona hiding among you... or perish in the darkness.
                     </p>
 
                     <div className="space-y-6">
@@ -150,6 +163,15 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
                                 Waiting for Vedamahattaya to begin the Thovil...
                             </p>
                         )}
+
+                        <HorrorButton
+                            variant="ghost"
+                            size="sm"
+                            onClick={handleLeaveRoom}
+                            className="mt-4 text-gray-500 hover:text-red-500 border-none"
+                        >
+                            ← Leave Room
+                        </HorrorButton>
                     </div>
                 </DarkPanel>
             )}

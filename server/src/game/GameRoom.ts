@@ -15,10 +15,12 @@ export class GameRoom {
             players: [],
             hostSessionId: hostSocketId,
             hostUserId: hostUserId,
+            selectedYaka: null,
             nightStep: 0,
             protectedPlayerId: null,
             poisonedPlayerId: null,
             swappedSeats: null,
+            hunterRevengeTargetId: null,
             nomineeId: null,
             votes: {}
         };
@@ -55,49 +57,52 @@ export class GameRoom {
 
     distributeRoles() {
         const pCount = this.state.players.length;
-        const distribution = getRoleDistribution(pCount);
 
-        // Build bag
+        // 1. Pick a Yaka helper type for this game
+        const yakaTypes: ('Riri Yaka' | 'Kalu Kumaraya')[] = ['Riri Yaka', 'Kalu Kumaraya'];
+        this.state.selectedYaka = yakaTypes[Math.floor(Math.random() * yakaTypes.length)];
+
+        // 2. Build the role bag
         let bag: RoleType[] = [];
-        bag.push(ROLE_POOL.Demon[0]); // Mahasona
 
-        // Choose minions
-        const minionPool = [...ROLE_POOL.Minion];
-        for (let i = 0; i < distribution.minions; i++) {
-            const rIndex = Math.floor(Math.random() * minionPool.length);
-            // If we run out of unique minions, start over (though for now we only have 2, so it triggers early)
-            const role = minionPool.splice(rIndex, 1)[0] || ROLE_POOL.Minion[Math.floor(Math.random() * ROLE_POOL.Minion.length)];
+        // Always 1 Mahasona
+        bag.push('Mahasona');
+
+        // Always 1 of the selected Yaka
+        bag.push(this.state.selectedYaka);
+
+        // Power roles (Good)
+        const powerRoles: RoleType[] = ['Kattandiya', 'Pirith Monk', 'Vedda Hunter', 'Gama Ralahamy'];
+
+        // Fill based on player count (5-6: no hunter, 7+: all power roles)
+        powerRoles.forEach(role => {
+            if (role === 'Vedda Hunter' && pCount < 7) return;
             bag.push(role);
+        });
+
+        // Fill remaining with Villagers/Townsfolk
+        while (bag.length < pCount) {
+            bag.push('Townsfolk');
         }
 
-        // Choose outsiders
-        for (let i = 0; i < distribution.outsiders; i++) {
-            bag.push(ROLE_POOL.Outsider[0]); // Currently only Pretaya
+        // Final safety check: if we somehow overfilled (unlikely with this logic), trim
+        if (bag.length > pCount) {
+            bag = bag.slice(0, pCount);
         }
 
-        // Choose Townsfolk
-        const tfPool = [...ROLE_POOL.Townsfolk];
-        for (let i = 0; i < distribution.townsfolk; i++) {
-            if (tfPool.length > 0) {
-                const rIndex = Math.floor(Math.random() * tfPool.length);
-                bag.push(tfPool.splice(rIndex, 1)[0]);
-            } else {
-                bag.push('Townsfolk');
-            }
-        }
-
-        // Shuffle bag
+        // 3. Shuffle bag
         for (let i = bag.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [bag[i], bag[j]] = [bag[j], bag[i]];
         }
 
-        // Assign
+        // 4. Assign Roles
         this.state.players.forEach((p: Player, i: number) => {
             p.role = bag[i];
+            p.isAlive = true; // reset for new game
         });
 
-        // Randomize seat positions
+        // 5. Randomize seat positions
         const seats = Array.from({ length: pCount }, (_, i) => i);
         for (let i = seats.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
