@@ -13,6 +13,7 @@ import { TownSquare } from './components/day/TownSquare';
 import { VotingUI } from './components/day/VotingUI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { InstructionsModal } from './components/ui/InstructionsModal';
+import { SettingsModal } from './components/ui/SettingsModal';
 
 function GameRouter() {
   const { gameState, myPlayer, isStoryteller, isAwake, investigationResult, winner } = useGameState();
@@ -171,7 +172,17 @@ function App() {
   const [loadingSession, setLoadingSession] = useState(true);
 
   // Initialize Global Audio for the entire site (Login + Game)
-  const { isMuted, toggleMute } = useGameAudio();
+  const { isMuted, toggleMute, volume, updateVolume } = useGameAudio();
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [brightness, setBrightness] = useState(() => {
+    const saved = localStorage.getItem('yaksha_brightness');
+    return saved ? parseFloat(saved) : 1;
+  });
+
+  const updateBrightness = (val: number) => {
+    setBrightness(val);
+    localStorage.setItem('yaksha_brightness', String(val));
+  };
 
   useEffect(() => {
     // Prevent global right-click to protect assets
@@ -260,13 +271,23 @@ function App() {
         </HorrorButton>
 
         {session && (
-          <HorrorButton
-            variant="ghost"
-            onClick={handleLogout}
-            className="text-xs tracking-[0.25em] text-red-500/70 hover:text-red-500 border-horror-accent/20 hover:border-horror-accent/50"
-          >
-            Logout
-          </HorrorButton>
+          <>
+            <HorrorButton
+              variant="ghost"
+              onClick={() => setIsSettingsOpen(true)}
+              className="text-xs tracking-[0.25em] text-horror-accent/70 hover:text-horror-accent border-horror-accent/20 hover:border-horror-accent/50"
+            >
+              ⚙️ Settings
+            </HorrorButton>
+
+            <HorrorButton
+              variant="ghost"
+              onClick={handleLogout}
+              className="text-xs tracking-[0.25em] text-red-500/70 hover:text-red-500 border-horror-accent/20 hover:border-horror-accent/50"
+            >
+              Logout
+            </HorrorButton>
+          </>
         )}
       </motion.div>
 
@@ -277,7 +298,9 @@ function App() {
       ) : session ? (
         <>
           <AnimatePresence mode="wait">
-            <GameRouter />
+            <div style={{ filter: `brightness(${brightness})`, width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <GameRouter />
+            </div>
           </AnimatePresence>
           <div className="mt-20 w-full flex flex-col items-center opacity-60 hover:opacity-100 transition-opacity duration-700">
             {branding}
@@ -308,6 +331,16 @@ function App() {
           Created By tharaka gamage
         </p>
       </footer>
+
+      <SettingsModal
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        volume={volume}
+        onVolumeChange={updateVolume}
+        brightness={brightness}
+        onBrightnessChange={updateBrightness}
+        currentName={session?.user?.user_metadata?.player_name || 'Soul'}
+      />
     </div>
   )
 }

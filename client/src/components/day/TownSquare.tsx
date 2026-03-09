@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import type { GameState, Player } from '../../../../shared/types';
 import { HorrorButton } from '../ui/HorrorButton';
 import { socket } from '../../hooks/useGameState';
+import { PROFILE_ICONS } from '../../constants/icons';
 
 interface TownSquareProps {
     gameState: GameState;
@@ -57,14 +58,28 @@ export const TownSquare: React.FC<TownSquareProps> = ({ gameState, myPlayer }) =
             </div>
 
             <div ref={chatRef} className="flex-1 overflow-y-auto p-4 space-y-3 font-body text-gray-300">
-                {messages.map((msg, i) => (
-                    <div key={i} className={`flex flex-col ${msg.sender === myPlayer.name ? 'items-end' : 'items-start'}`}>
-                        <span className="text-[10px] text-gray-600 mb-1">{msg.sender} • {msg.time}</span>
-                        <div className={`px-3 py-2 rounded-sm max-w-[80%] ${msg.sender === myPlayer.name ? 'bg-horror-border text-white' : 'bg-[#1a0f0f] border border-horror-border/50'}`}>
-                            {msg.text}
+                {messages.map((msg, i) => {
+                    const sender = gameState.players.find(p => p.name === msg.sender);
+                    return (
+                        <div key={i} className={`flex flex-col ${msg.sender === myPlayer.name ? 'items-end' : 'items-start'}`}>
+                            <div className="flex items-center gap-1 mb-1">
+                                {sender && (
+                                    <div className="w-4 h-4 flex items-center justify-center border border-horror-border/30 bg-black/40 rounded-[2px] opacity-60">
+                                        <svg
+                                            viewBox="0 0 24 24"
+                                            className="w-3 h-3 text-horror-primary"
+                                            dangerouslySetInnerHTML={{ __html: PROFILE_ICONS[sender.iconId]?.svg || PROFILE_ICONS[0].svg }}
+                                        />
+                                    </div>
+                                )}
+                                <span className="text-[10px] text-gray-600">{msg.sender} • {msg.time}</span>
+                            </div>
+                            <div className={`px-3 py-2 rounded-sm max-w-[80%] ${msg.sender === myPlayer.name ? 'bg-horror-border text-white' : 'bg-[#1a0f0f] border border-horror-border/50'}`}>
+                                {msg.text}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
                 {messages.length === 0 && (
                     <div className="text-center text-gray-600 italic mt-10">The village is deadly quiet... Speak!</div>
                 )}

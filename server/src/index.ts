@@ -10,16 +10,18 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin: '*' // In production, restrict this to vercel domain
+    origin: process.env.CORS_ORIGIN || '*'
 }));
 app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: '*',
+        origin: process.env.CORS_ORIGIN || '*',
         methods: ['GET', 'POST']
-    }
+    },
+    transports: ['websocket'],
+    allowEIO3: true
 });
 
 const PORT = process.env.PORT || 3001;
@@ -72,7 +74,9 @@ io.on('connection', (socket) => {
 
     socket.on('create_room', (data, callback) => {
         const roomCode = Math.random().toString(36).substring(2, 8).toUpperCase();
-        rooms[roomCode] = new GameRoom(roomCode, socket.id, data.userId);
+        const room = new GameRoom(roomCode, socket.id, data.userId);
+        rooms[roomCode] = room;
+        room.addPlayer(socket.id, data.playerName || 'Storyteller', data.userId, data.iconId || 0);
         socket.join(roomCode);
 
         // Emitting the initial state to the host so the UI can render
@@ -89,7 +93,7 @@ io.on('connection', (socket) => {
                 return;
             }
 
-            const success = room.addPlayer(socket.id, data.playerName, data.userId);
+            const success = room.addPlayer(socket.id, data.playerName, data.userId, data.iconId || 0);
             if (success) {
                 socket.join(data.roomCode);
                 io.to(data.roomCode).emit('room_state_update', { gameState: room.state });

@@ -20,6 +20,7 @@ export interface Player {
     isOnline: boolean;
     seatPosition: number;
     socketId: string;
+    iconId: number;
 }
 
 export type GamePhase = 'lobby' | 'day' | 'night' | 'finished';

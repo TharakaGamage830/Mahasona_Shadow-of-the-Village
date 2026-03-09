@@ -3,6 +3,7 @@ import { HorrorButton } from '../ui/HorrorButton';
 import { DarkPanel } from '../ui/DarkPanel';
 import { socket } from '../../hooks/useGameState';
 import { supabase } from '../../lib/supabaseClient';
+import { PROFILE_ICONS } from '../../constants/icons';
 
 interface LobbyViewProps {
     gameState: any; // We'll just pass it down to avoid double socket subscriptions
@@ -11,6 +12,7 @@ interface LobbyViewProps {
 export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
     const [playerName, setPlayerName] = useState('');
     const [userId, setUserId] = useState('');
+    const [iconId, setIconId] = useState(0);
     const [roomCodeInput, setRoomCodeInput] = useState('');
     const [view, setView] = useState<'menu' | 'join' | 'waiting'>('menu');
     const [errorVisible, setErrorVisible] = useState(false);
@@ -21,6 +23,7 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
                 if (data.user) {
                     setUserId(data.user.id);
                     setPlayerName(data.user.user_metadata?.player_name || data.user.email?.split('@')[0] || 'Unknown Soul');
+                    setIconId(data.user.user_metadata?.icon_id || 0);
                 }
             });
         }
@@ -34,7 +37,7 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
     }, [gameState]);
 
     const handleCreateRoom = () => {
-        socket.emit('create_room', { userId, playerName }, (res: any) => {
+        socket.emit('create_room', { userId, playerName, iconId }, (res: any) => {
             if (res.roomCode) {
                 localStorage.setItem('yaksha_room', res.roomCode);
                 setView('waiting');
@@ -44,7 +47,7 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
 
     const handleJoinRoom = () => {
         if (roomCodeInput.length === 6 && playerName && userId) {
-            socket.emit('join_room', { roomCode: roomCodeInput, playerName, userId }, (res: any) => {
+            socket.emit('join_room', { roomCode: roomCodeInput, playerName, userId, iconId }, (res: any) => {
                 if (res.error) {
                     setErrorVisible(true);
                     setTimeout(() => setErrorVisible(false), 3000);
@@ -146,8 +149,18 @@ export const LobbyView: React.FC<LobbyViewProps> = ({ gameState }) => {
                         </h3>
                         <ul className="space-y-2">
                             {gameState.players.map((p: any) => (
-                                <li key={p.id} className="font-body text-lg text-gray-300 flex items-center justify-center gap-2">
-                                    <span className="text-red-500 text-xs">●</span> {p.name}
+                                <li key={p.id} className="font-body text-lg text-gray-300 flex items-center justify-between bg-white/5 p-2 px-4 rounded border border-white/5">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 flex items-center justify-center border border-horror-border/50 bg-black/60 rounded">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                className="w-5 h-5 text-horror-primary"
+                                                dangerouslySetInnerHTML={{ __html: PROFILE_ICONS[p.iconId]?.svg || PROFILE_ICONS[0].svg }}
+                                            />
+                                        </div>
+                                        <span className="uppercase tracking-widest text-sm">{p.name}</span>
+                                    </div>
+                                    <span className="text-horror-accent/40 text-[10px] uppercase">Bound</span>
                                 </li>
                             ))}
                         </ul>

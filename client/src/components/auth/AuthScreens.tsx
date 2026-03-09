@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { supabase } from '../../lib/supabaseClient';
 import { DarkPanel } from '../ui/DarkPanel';
 import { HorrorButton } from '../ui/HorrorButton';
+import { PROFILE_ICONS } from '../../constants/icons';
 
 export const AuthScreens: React.FC = () => {
     const [view, setView] = useState<'login' | 'register'>('login');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [playerName, setPlayerName] = useState('');
+    const [selectedIconId, setSelectedIconId] = useState(0);
     const [loading, setLoading] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
 
@@ -32,7 +34,8 @@ export const AuthScreens: React.FC = () => {
                     password,
                     options: {
                         data: {
-                            player_name: playerName.toUpperCase()
+                            player_name: playerName.toUpperCase(),
+                            icon_id: selectedIconId
                         }
                     }
                 });
@@ -58,7 +61,7 @@ export const AuthScreens: React.FC = () => {
             <DarkPanel className="w-full text-center" title={view === 'login' ? "Return to the Village" : "Join the Ritual"}>
                 <form onSubmit={handleAuth} className="space-y-6 flex flex-col items-center w-full">
                     {view === 'register' && (
-                        <div className="w-full">
+                        <div className="w-full space-y-4">
                             <input
                                 type="text"
                                 placeholder="YOUR PLAYER NAME"
@@ -67,6 +70,22 @@ export const AuthScreens: React.FC = () => {
                                 className="w-full bg-black/60 border border-horror-border px-4 py-3 text-center tracking-widest text-lg focus:outline-none focus:border-horror-primary mb-2 uppercase"
                                 required
                             />
+
+                            <div className="w-full">
+                                <label className="block text-xs uppercase tracking-[0.3em] text-horror-accent mb-3 text-center">Select Your Totem</label>
+                                <div className="flex gap-4 overflow-x-auto pb-4 px-2 custom-scrollbar mask-fade-edges">
+                                    {PROFILE_ICONS.map(icon => (
+                                        <button
+                                            key={icon.id}
+                                            type="button"
+                                            onClick={() => setSelectedIconId(icon.id)}
+                                            className={`min-w-[50px] h-[50px] flex items-center justify-center border-2 transition-all ${selectedIconId === icon.id ? 'border-horror-primary scale-110' : 'border-stone-800 opacity-40 hover:opacity-80'}`}
+                                        >
+                                            <svg viewBox="0 0 24 24" className="w-8 h-8" dangerouslySetInnerHTML={{ __html: icon.svg }} />
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     )}
                     <div className="w-full">

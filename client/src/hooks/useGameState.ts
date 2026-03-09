@@ -4,7 +4,9 @@ import type { GameState, Player, RoleType } from '../../../shared/types';
 import { supabase } from '../lib/supabaseClient';
 
 // Singleton socket for MVP simplicity
-export const socket: Socket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001');
+export const socket: Socket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:3001', {
+    transports: ['websocket']
+});
 
 export const useGameState = () => {
     const [gameState, setGameState] = useState<GameState | null>(null);

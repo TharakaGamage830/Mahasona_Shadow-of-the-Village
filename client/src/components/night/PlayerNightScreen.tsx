@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { GameState, Player } from '../../../../shared/types';
 import { DarkPanel } from '../ui/DarkPanel';
 import { HorrorButton } from '../ui/HorrorButton';
+import { PROFILE_ICONS } from '../../constants/icons';
 
 // Dummy description map. Would be expanded per role.
 const ROLE_DESCRIPTIONS: Record<string, string> = {
@@ -95,10 +96,19 @@ export const PlayerNightScreen: React.FC<PlayerNightScreenProps> = ({
                                     : 'border-horror-border/50 bg-black/40 hover:bg-black'
                                     } ${!p.isAlive ? 'opacity-30 cursor-not-allowed' : ''}`}
                             >
-                                <div className="flex justify-between items-center">
-                                    <span className={`font-heading uppercase tracking-widest ${!p.isAlive ? 'line-through text-gray-500' : 'text-gray-200'}`}>
-                                        {p.name}
-                                    </span>
+                                <div className="flex justify-between items-center gap-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-8 h-8 shrink-0 flex items-center justify-center border border-horror-border/30 bg-black/40">
+                                            <svg
+                                                viewBox="0 0 24 24"
+                                                className={`w-5 h-5 ${p.id === myPlayer.id ? 'text-horror-accent' : 'text-horror-primary'}`}
+                                                dangerouslySetInnerHTML={{ __html: PROFILE_ICONS[p.iconId]?.svg || PROFILE_ICONS[0].svg }}
+                                            />
+                                        </div>
+                                        <span className={`font-heading uppercase tracking-widest ${!p.isAlive ? 'line-through text-gray-500' : 'text-gray-200'}`}>
+                                            {p.name}
+                                        </span>
+                                    </div>
                                     {(selectedTarget === p.id || secondTarget === p.id) && (
                                         <span className="text-horror-primary">●</span>
                                     )}

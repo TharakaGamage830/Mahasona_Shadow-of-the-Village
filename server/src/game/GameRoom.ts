@@ -26,7 +26,7 @@ export class GameRoom {
         };
     }
 
-    addPlayer(socketId: string, name: string, userId: string) {
+    addPlayer(socketId: string, name: string, userId: string, iconId: number) {
         if (this.state.players.some((p: Player) => p.userId === userId)) return false; // Already in room
 
         this.state.players.push({
@@ -37,7 +37,8 @@ export class GameRoom {
             isAlive: true,
             isOnline: true,
             seatPosition: this.state.players.length,
-            socketId
+            socketId,
+            iconId
         });
         return true;
     }

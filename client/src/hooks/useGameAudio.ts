@@ -8,31 +8,31 @@ const SOUNDS = {
         src: ['/assets/music/LOBBY-MUSIC.mp3'],
         loop: true,
         volume: 0.15,
-        html5: true, // Use HTML5 Audio for large files to avoid loading/autoplay blocks
+        html5: false,
     }),
     night: new Howl({
         src: ['/assets/music/NIGHT-PHASE-MUSIC.mp3'],
         loop: true,
         volume: 0.2,
-        html5: true,
+        html5: false,
     }),
     day: new Howl({
         src: ['/assets/music/DAY-PHASE-MUSIC.mp3'],
         loop: true,
         volume: 0.25,
-        html5: true,
+        html5: false,
     }),
     victory: new Howl({
         src: ['/assets/music/ENDING-MUSIC-VICTORY.mp3'],
         loop: true,
         volume: 0.4,
-        html5: true,
+        html5: false,
     }),
     defeat: new Howl({
         src: ['/assets/music/ENDING-MUSIC-DEFEAT.mp3'],
         loop: true,
         volume: 0.4,
-        html5: true,
+        html5: false,
     }),
 };
 
@@ -41,20 +41,30 @@ export const useGameAudio = () => {
     const [isMuted, setIsMuted] = useState(() => {
         return localStorage.getItem('yaksha_muted') === 'true';
     });
+    const [volume, setVolume] = useState(() => {
+        const saved = localStorage.getItem('yaksha_volume');
+        return saved ? parseFloat(saved) : 0.5;
+    });
     const previousPhase = useRef<string | null>(null);
+    const transitionTimeout = useRef<any>(null);
 
     const toggleMute = () => {
         const NewMuted = !isMuted;
         setIsMuted(NewMuted);
         localStorage.setItem('yaksha_muted', String(NewMuted));
-        // @ts-ignore
         Howler.mute(NewMuted);
     };
 
-    // Apply mute state on mount
+    const updateVolume = (newVol: number) => {
+        setVolume(newVol);
+        localStorage.setItem('yaksha_volume', String(newVol));
+        Howler.volume(newVol);
+    };
+
+    // Apply mute and volume state on mount
     useEffect(() => {
-        // @ts-ignore
         Howler.mute(isMuted);
+        Howler.volume(volume);
     }, []);
 
     // Global interaction unlock for browsers
@@ -78,20 +88,21 @@ export const useGameAudio = () => {
     }, [gameState, isMuted]);
 
     useEffect(() => {
-        // Default to 'lobby' if no game state exists (pre-login)
         const currentPhase = gameState?.phase || 'lobby';
 
-        // Detect phase changes and transition audio
         if (currentPhase !== previousPhase.current) {
+            // Clear any pending transition
+            if (transitionTimeout.current) clearTimeout(transitionTimeout.current);
+
             // Fade out everything currently playing
             Object.values(SOUNDS).forEach(s => {
                 if (s instanceof Howl && s.playing()) {
-                    s.fade(s.volume(), 0, 1500);
-                    setTimeout(() => s.stop(), 1500);
+                    s.fade(s.volume(), 0, 1000);
+                    setTimeout(() => s.stop(), 1000);
                 }
             });
 
-            setTimeout(() => {
+            transitionTimeout.current = setTimeout(() => {
                 // Start new audio based on current phase
                 if (currentPhase === 'lobby') {
                     if (!SOUNDS.lobby.playing() && !isMuted) {
@@ -119,11 +130,11 @@ export const useGameAudio = () => {
                         }
                     }
                 }
-            }, 1600);
+            }, 1200);
 
             previousPhase.current = currentPhase;
         }
     }, [gameState, winner, isMuted]);
 
-    return { isMuted, toggleMute };
+    return { isMuted, toggleMute, volume, updateVolume };
 };

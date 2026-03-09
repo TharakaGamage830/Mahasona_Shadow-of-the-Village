@@ -3,6 +3,7 @@ import { DarkPanel } from '../ui/DarkPanel';
 import { HorrorButton } from '../ui/HorrorButton';
 import { socket } from '../../hooks/useGameState';
 import type { GameState } from '../../../../shared/types';
+import { PROFILE_ICONS } from '../../constants/icons';
 
 interface KatawaliyaPanelProps {
     gameState: GameState;
@@ -117,11 +118,20 @@ export const KatawaliyaPanel: React.FC<KatawaliyaPanelProps> = ({ gameState, onW
                 <div className="flex flex-col gap-2">
                     {gameState.players.map(p => (
                         <div key={p.id} className="p-3 border border-horror-border/50 bg-black/40 flex justify-between items-center group">
-                            <div>
-                                <span className={`font-bold ${p.isAlive ? 'text-white' : 'text-gray-600 line-through'}`}>
-                                    {p.name}
-                                </span>
-                                <span className="ml-2 text-sm text-horror-accent">[{p.role}]</span>
+                            <div className="flex items-center gap-3">
+                                <div className="w-8 h-8 flex items-center justify-center border border-horror-border/30 bg-black/20 rounded">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        className="w-5 h-5 text-horror-primary"
+                                        dangerouslySetInnerHTML={{ __html: PROFILE_ICONS[p.iconId]?.svg || PROFILE_ICONS[0].svg }}
+                                    />
+                                </div>
+                                <div>
+                                    <span className={`font-bold uppercase tracking-wider ${p.isAlive ? 'text-white' : 'text-gray-600 line-through'}`}>
+                                        {p.name}
+                                    </span>
+                                    <span className="ml-2 text-[10px] text-horror-accent block uppercase opacity-60">{p.role}</span>
+                                </div>
                             </div>
 
                             <div className="flex gap-2">

@@ -1,0 +1,36 @@
+// 30 Themed SVG Icons for Mahasona: Shadows of the Village
+// These are simple atmospheric silhouettes/symbols suitable for a horror social deduction game.
+
+export const PROFILE_ICONS = [
+    { id: 0, svg: '<circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.2"/>' }, // Default
+    { id: 1, name: 'Red Mask', svg: '<path d="M12 2L4 7v10l8 5 8-5V7l-8-5z M8 10h2v2H8v-2z M14 10h2v2h-2v-2z" fill="#8b0000"/>' },
+    { id: 2, name: 'White Skull', svg: '<path d="M12 4c-4.4 0-8 3.6-8 8v2c0 4.4 3.6 8 8 8s8-3.6 8-8v-2c0-4.4-3.6-8-8-8zm-3 9c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm6 0c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z" fill="#f5e6c8"/>' },
+    { id: 3, name: 'Blood Drop', svg: '<path d="M12 2C12 2 6 10 6 14s2.7 8 6 8 6-4 6-8-6-12-6-12z" fill="#ff1a1a"/>' },
+    { id: 4, name: 'Wolf Eye', svg: '<path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8zm10 4c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4z" fill="gold"/>' },
+    { id: 5, name: 'Dagger', svg: '<path d="M18 4l-2-2-12 12v4h4l12-12-2-2z" fill="#4a4a4a"/>' },
+    { id: 6, name: 'Scroll', svg: '<path d="M4 4h16v16H4z M6 6v12h12V6z" fill="#d2b48c"/>' },
+    { id: 7, name: 'Crescent', svg: '<path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10c0-11 5-11 5-20z" fill="#eee"/>' },
+    { id: 8, name: 'Talon', svg: '<path d="M4 20l4-4-4-4 4-4-4-4" fill="#666" stroke="currentColor"/>' },
+    { id: 9, name: 'Ritual Flame', svg: '<path d="M12 2s-6 7-6 11 2.7 7 6 7 6-3 6-7-6-11-6-11z" fill="orange"/>' },
+    { id: 10, name: 'Ghost', svg: '<path d="M12 2C8 2 5 5 5 9v11l2-2 2 2 2-2 1 1 1-1 2 2 2-2 2 2V9c0-4-3-7-7-7z" fill="#aaa"/>' },
+    { id: 11, name: 'Bat', svg: '<path d="M12 10L2 6v4l10 8 10-8V6z" fill="#333"/>' },
+    { id: 12, name: 'Cauldron', svg: '<path d="M6 8h12v8c0 3-2 5-6 5s-6-2-6-5V8z" fill="#111"/>' },
+    { id: 13, name: 'Crow', svg: '<path d="M20 12l-8 4-8-4 8-8z" fill="#000"/>' },
+    { id: 14, name: 'Shackles', svg: '<circle cx="8" cy="12" r="3" fill="none" stroke="#555"/><circle cx="16" cy="12" r="3" fill="none" stroke="#555"/>' },
+    { id: 15, name: 'Spear', svg: '<path d="M2 22L22 2" stroke="#777" strokeWidth="2"/>' },
+    { id: 16, name: 'Tombstone', svg: '<path d="M6 20V8c0-3 3-4 6-4s6 1 6 4v12z" fill="#666"/>' },
+    { id: 17, name: 'Voodoo Doll', svg: '<circle cx="12" cy="8" r="4" fill="#d2b48c"/><path d="M8 12h8l-4 8z" fill="#d2b48c"/>' },
+    { id: 18, name: 'Hourglass', svg: '<path d="M6 4h12l-6 8 6 8H6l6-8z" fill="#888"/>' },
+    { id: 19, name: 'Chain', svg: '<path d="M12 4v16" stroke="#999" strokeWidth="4" strokeDasharray="4 2"/>' },
+    { id: 20, name: 'Spider', svg: '<circle cx="12" cy="12" r="4" fill="#000"/><path d="M4 4l4 4M20 4l-4 4M4 20l4-4M20 20l-4-4" stroke="#000"/>' },
+    { id: 21, name: 'Web', svg: '<path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19" stroke="#555"/>' },
+    { id: 22, name: 'Hex', svg: '<path d="M12 2l8.7 5v10L12 22l-8.7-5V7z" fill="none" stroke="purple"/>' },
+    { id: 23, name: 'Potion', svg: '<path d="M10 4h4l2 4v10c0 2-2 4-6 4s-6-2-6-4V8z" fill="teal"/>' },
+    { id: 24, name: 'Eye of Agony', svg: '<circle cx="12" cy="12" r="8" fill="none" stroke="red"/><circle cx="12" cy="12" r="2" fill="red"/>' },
+    { id: 25, name: 'Snake', svg: '<path d="M4 12c4-4 12 4 16 0" fill="none" stroke="green" strokeWidth="2"/>' },
+    { id: 26, name: 'Roots', svg: '<path d="M12 12c-4-4-2-8-2-8m2 8c4-4 2-8 2-8" fill="none" stroke="brown"/>' },
+    { id: 27, name: 'Eclipse', svg: '<circle cx="12" cy="12" r="9" fill="black"/><circle cx="10" cy="10" r="9" fill="white" opacity="0.1"/>' },
+    { id: 28, name: 'Shadow Seal', svg: '<path d="M12 4L4 20h16z" fill="none" stroke="black" strokeWidth="2"/>' },
+    { id: 29, name: 'Blood Moon', svg: '<circle cx="12" cy="12" r="9" fill="#500"/>' },
+    { id: 30, name: 'Demon Horns', svg: '<path d="M6 10s0-8 6-8 6 8 6 8" fill="none" stroke="#8b0000" strokeWidth="2"/>' },
+];

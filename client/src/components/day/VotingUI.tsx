@@ -3,6 +3,7 @@ import type { GameState, Player } from '../../../../shared/types';
 import { DarkPanel } from '../ui/DarkPanel';
 import { HorrorButton } from '../ui/HorrorButton';
 import { socket } from '../../hooks/useGameState';
+import { PROFILE_ICONS } from '../../constants/icons';
 
 interface VotingUIProps {
     gameState: GameState;
@@ -50,12 +51,19 @@ export const VotingUI: React.FC<VotingUIProps> = ({ gameState, myPlayer }) => {
                                 key={p.id}
                                 onClick={() => setSelectedNominee(p.id)}
                                 disabled={!myPlayer.isAlive || !p.isAlive || p.id === myPlayer.id}
-                                className={`p-3 text-left border transition-colors ${selectedNominee === p.id
+                                className={`p-2 text-left border transition-colors flex items-center gap-2 ${selectedNominee === p.id
                                     ? 'border-red-600 bg-red-900/30'
                                     : 'border-horror-border/40 bg-black/40 hover:border-horror-accent'
                                     } ${!p.isAlive ? 'opacity-30 line-through' : ''}`}
                             >
-                                <div className="uppercase tracking-widest text-xs font-heading">{p.name}</div>
+                                <div className="w-6 h-6 shrink-0 flex items-center justify-center border border-horror-border/30 bg-black/40">
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        className={`w-4 h-4 ${p.id === myPlayer.id ? 'text-horror-accent' : 'text-horror-primary'}`}
+                                        dangerouslySetInnerHTML={{ __html: PROFILE_ICONS[p.iconId]?.svg || PROFILE_ICONS[0].svg }}
+                                    />
+                                </div>
+                                <div className="uppercase tracking-widest text-[10px] font-heading truncate">{p.name}</div>
                             </button>
                         ))}
                     </div>
